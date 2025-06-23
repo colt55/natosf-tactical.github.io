@@ -70,7 +70,6 @@
       color: #888;
       border-top: 1px solid #333;
     }
-    /* Announcement Block */
     .announcement-block {
       border: 3px solid #222;
       border-radius: 10px;
@@ -83,19 +82,28 @@
       max-width: 900px;
       box-shadow: 0 0 18px #000;
     }
-    .announcement-block h2 {
-      margin-top: 0;
-      color: #ffe100;
+    .announcement-block h2,
+    .announcement-block a,
+    .announcement-block ul,
+    .announcement-block li,
+    .announcement-block strong,
+    .announcement-block b,
+    .announcement-block u,
+    .announcement-block em {
+      color: #ffe100 !important;
+    }
+    .announcement-block a {
+      text-decoration: underline;
     }
     .announcement-block ul {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      color: #fff;
-      font-weight: normal;
       list-style: disc inside;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-bottom: 10px;
+      padding-left: 15px;
     }
     .announcement-block li {
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -127,7 +135,7 @@
       Contact <u>Colt</u> on Steam for a lesson—don’t bug the rest of us in the middle of a firefight.<br><br>
       <b>No Discord, no drama. TeamSpeak only. English only. Germany-based server.</b><br><br>
       Server empty? Means less idiots to get you killed.<br>
-      Want in? Join the <a href="https://steamcommunity.com/groups/natosf-tactical" style="color: #ffe100; text-decoration: underline;">Steam group</a>, read the SOP, and step up—or don’t show up.<br><br>
+      Want in? Join the <a href="https://steamcommunity.com/groups/natosf-tactical">Steam group</a> and the <a href="https://units.arma3.com/unit/nsft">official Bohemia unit</a>, read the SOP, and step up—or don’t show up.<br><br>
       S!
     </p>
   </div>
@@ -138,6 +146,14 @@
       <p>Join the official Steam Group to connect, recruit, and coordinate:</p>
       <a href="https://steamcommunity.com/groups/natosf-tactical" class="button" target="_blank">
         Join NATO SF Tactical
+      </a>
+    </section>
+
+    <section>
+      <h2>Bohemia Interactive Unit</h2>
+      <p>Register on the official Bohemia Interactive unit page to show your colors in the ARMA 3 Launcher:</p>
+      <a href="https://units.arma3.com/unit/nsft" class="button" target="_blank">
+        Join the Bohemia Unit
       </a>
     </section>
 
