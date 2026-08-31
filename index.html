@@ -1,197 +1,1893 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NATO SF Tactical</title>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Operation Sentinel | NATO Special Forces Tactical Unit
+  </title>
+
+  <meta
+    name="description"
+    content="Operation Sentinel is the persistent tactical Arma 3 campaign of the NATO Special Forces Tactical Unit. Join NSFTU on Livonia for ACE, ACM, ACRE2, persistent progression, aviation, logistics, reconnaissance and combined-arms operations."
+  >
+
   <style>
+
+    /* =========================================================
+       OPERATION SENTINEL
+       NATO SPECIAL FORCES TACTICAL UNIT
+       TABLET-INSPIRED WEB UI
+       ========================================================= */
+
+    :root {
+
+      --screen-black: #000402;
+      --screen-deep: #010704;
+      --screen-panel: #030905;
+      --screen-panel-light: #07110a;
+
+      --button: #141414;
+      --button-hover: #2e2e2e;
+
+      --text-main: #c7e6bd;
+      --text-soft: #bddbbd;
+      --text-bright: #dbfad1;
+      --text-dim: #6f8568;
+      --text-disabled: #546b47;
+
+      --sentinel-green: #9ed105;
+      --sentinel-green-dark: #7aa61a;
+      --sentinel-green-dim: #435e12;
+
+      --border: #344128;
+      --border-dark: #1b2618;
+
+      --shadow-green: rgba(158, 209, 5, 0.15);
+      --shadow-black: rgba(0, 0, 0, 0.85);
+    }
+
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background: #101010;
-      color: #f0f0f0;
-      font-family: "Courier New", monospace;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #08120a 0%,
+          var(--screen-black) 38%,
+          #000000 100%
+        );
+
+      background-attachment: fixed;
+
+      color: var(--text-main);
+
+      font-family:
+        "Arial Narrow",
+        "Roboto Condensed",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      line-height: 1.6;
     }
+
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: 0.025;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(180, 255, 150, 0.15) 3px
+        );
+
+      z-index: 9999;
+    }
+
+
+    a {
+      color: var(--sentinel-green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--text-bright);
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       TOP STATUS BAR
+       ========================================================= */
+
+    .status-bar {
+
+      background: #000000;
+
+      border-bottom:
+        1px solid var(--sentinel-green-dark);
+
+      color: var(--text-soft);
+
+      padding: 7px 18px;
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+      font-size: 0.76rem;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+
+    .status-inner {
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+
+    .status-online {
+      color: var(--sentinel-green);
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
     header {
-      background: #181818;
-      padding: 2em;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(2, 7, 4, 0.99),
+          rgba(0, 4, 2, 0.98)
+        );
+
+      border-bottom:
+        2px solid var(--sentinel-green-dark);
+
       text-align: center;
-      border-bottom: 1px solid #333;
+
+      padding:
+        75px 20px
+        60px;
+
+      box-shadow:
+
+        0 8px 30px
+        var(--shadow-black),
+
+        inset 0 -1px 0
+        rgba(158, 209, 5, 0.3);
     }
+
+
+    .unit-name {
+
+      color: var(--text-soft);
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+      font-size: 0.85rem;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 14px;
+    }
+
+
     header h1 {
+
       margin: 0;
-      font-size: 3em;
+
+      color: var(--text-bright);
+
+      font-size:
+        clamp(2.4rem, 7vw, 4.7rem);
+
+      font-weight: 800;
+
+      letter-spacing: 7px;
+
+      text-transform: uppercase;
+
+      text-shadow:
+
+        0 0 8px
+        rgba(158, 209, 5, 0.2);
+    }
+
+
+    .subtitle {
+
+      margin-top: 8px;
+
+      color: var(--sentinel-green);
+
+      font-size: 1.2rem;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    .version {
+
+      margin-top: 14px;
+
+      color: var(--text-soft);
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+      font-size: 0.85rem;
+
+      letter-spacing: 1.5px;
+    }
+
+
+    /* =========================================================
+       MAIN JOIN PANEL
+       ========================================================= */
+
+    .join-panel {
+
+      max-width: 1000px;
+
+      margin:
+        -28px auto
+        55px;
+
+      padding:
+        27px 25px;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(3, 9, 5, 0.99),
+          rgba(0, 4, 2, 0.99)
+        );
+
+      border:
+        1px solid var(--sentinel-green-dark);
+
+      border-radius: 3px;
+
+      text-align: center;
+
+      box-shadow:
+
+        0 10px 35px
+        var(--shadow-black),
+
+        0 0 20px
+        rgba(122, 166, 26, 0.07);
+    }
+
+
+    .join-panel h2 {
+
+      margin:
+        0 0
+        20px;
+
+      border: 0;
+
+      color:
+        var(--sentinel-green);
+
+      font-size: 1.35rem;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    .server-line {
+
+      margin:
+        10px 0;
+
+      color:
+        var(--text-soft);
+
+      font-size: 1.2rem;
+
+      font-weight: bold;
+    }
+
+
+    .server-label {
+
+      color:
+        var(--sentinel-green);
+
+      margin-right: 6px;
+    }
+
+
+    .server-ip {
+
+      color:
+        var(--text-bright);
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+    }
+
+
+    .browser-name {
+
+      margin-top: 10px;
+
+      color:
+        var(--text-soft);
+    }
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .button-row {
+
+      margin-top: 24px;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 10px;
+    }
+
+
+    .button {
+
+      display: inline-block;
+
+      min-width: 150px;
+
+      padding:
+        11px 17px;
+
+      background:
+        var(--button);
+
+      border:
+        1px solid
+        var(--sentinel-green-dark);
+
+      border-radius: 2px;
+
+      color:
+        var(--text-bright);
+
+      font-size: 0.85rem;
+
+      font-weight: bold;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+
+    .button:hover {
+
+      background:
+        var(--button-hover);
+
+      border-color:
+        var(--sentinel-green);
+
+      color:
+        var(--sentinel-green);
+
+      box-shadow:
+        0 0 10px
+        var(--shadow-green);
+    }
+
+
+    /* =========================================================
+       MAIN CONTENT
+       ========================================================= */
+
+    main {
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      padding:
+        0 20px
+        65px;
+    }
+
+
+    section {
+
+      margin-bottom: 55px;
+    }
+
+
+    .section-code {
+
+      color:
+        var(--text-dim);
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+      font-size: 0.72rem;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    h2 {
+
+      margin-top: 6px;
+
+      color:
+        var(--sentinel-green);
+
+      border-bottom:
+        1px solid
+        var(--sentinel-green-dark);
+
+      padding-bottom: 8px;
+
+      font-size: 1.35rem;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      text-shadow:
+
+        0 0 6px
+        rgba(158, 209, 5, 0.12);
+    }
+
+
+    h3 {
+
+      color:
+        var(--text-bright);
+    }
+
+
+    p {
+      color:
+        var(--text-main);
+    }
+
+
+    .lead {
+
+      color:
+        var(--text-bright);
+
+      font-size: 1.1rem;
+    }
+
+
+    .highlight {
+
+      color:
+        var(--sentinel-green);
+    }
+
+
+    /* =========================================================
+       FEATURE GRID
+       ========================================================= */
+
+    .grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(235px, 1fr)
+        );
+
+      gap: 16px;
+
+      margin-top: 23px;
+    }
+
+
+    .card {
+
+      position: relative;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(3, 9, 5, 0.96),
+          rgba(0, 4, 2, 0.98)
+        );
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 2px;
+
+      padding:
+        21px;
+
+      transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
+    }
+
+
+    .card::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 32px;
+
+      height: 2px;
+
+      background:
+        var(--sentinel-green-dark);
+    }
+
+
+    .card:hover {
+
+      border-color:
+        var(--sentinel-green-dark);
+
+      background:
+        var(--screen-panel-light);
+    }
+
+
+    .card h3 {
+
+      margin:
+        0 0
+        12px;
+
+      color:
+        var(--sentinel-green);
+
+      font-size: 1rem;
+
+      letter-spacing: 1.2px;
+
+      text-transform: uppercase;
+    }
+
+
+    ul {
+
+      margin-bottom: 0;
+
+      padding-left: 20px;
+    }
+
+
+    li {
+
+      margin-bottom: 6px;
+
+      color:
+        var(--text-main);
+    }
+
+
+    li::marker {
+
+      color:
+        var(--sentinel-green-dark);
+    }
+
+
+    /* =========================================================
+       SPECIALIZATIONS
+       ========================================================= */
+
+    .specializations {
+
+      margin-top: 20px;
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(
+          auto-fit,
+          minmax(145px, 1fr)
+        );
+
+      gap: 8px;
+    }
+
+
+    .specialization {
+
+      background:
+        var(--screen-panel);
+
+      border:
+        1px solid
+        var(--border);
+
+      padding:
+        13px 8px;
+
+      color:
+        var(--text-bright);
+
+      text-align: center;
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+      font-size: 0.88rem;
+
+      font-weight: bold;
+
       letter-spacing: 1px;
     }
-    main {
-      padding: 2em;
-      max-width: 900px;
-      margin: auto;
+
+
+    .specialization:hover {
+
+      border-color:
+        var(--sentinel-green);
+
+      color:
+        var(--sentinel-green);
     }
-    section {
-      margin-bottom: 40px;
+
+
+    /* =========================================================
+       COMMS / CONTACT TABLE
+       ========================================================= */
+
+    .contact-table {
+
+      width: 100%;
+
+      margin-top: 18px;
+
+      border-collapse: collapse;
+
+      background:
+        rgba(3, 9, 5, 0.55);
+
+      border:
+        1px solid
+        var(--border-dark);
     }
-    a {
-      color: #00bfff;
-      text-decoration: none;
+
+
+    .contact-table td {
+
+      padding:
+        12px 11px;
+
+      vertical-align: top;
+
+      border-bottom:
+        1px solid
+        var(--border-dark);
     }
-    a:hover {
-      text-decoration: underline;
-      margin-bottom: 2em;
+
+
+    .contact-table tr:hover {
+
+      background:
+        rgba(20, 20, 20, 0.7);
     }
-    .button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #00aaff;
-      color: #000;
+
+
+    .contact-table td:first-child {
+
+      width: 190px;
+
+      color:
+        var(--sentinel-green);
+
+      font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+      font-size: 0.82rem;
+
       font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.2s;
+
+      letter-spacing: 0.7px;
+
+      text-transform: uppercase;
     }
-    .button:hover {
-      background: #0088cc;
+
+
+    .contact-table strong {
+
+      color:
+        var(--text-bright);
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+
+
+    /* =========================================================
+       RULES
+       ========================================================= */
+
+    .rules {
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(3, 9, 5, 0.99),
+          rgba(0, 4, 2, 0.97)
+        );
+
+      border:
+        1px solid
+        var(--border);
+
+      border-left:
+        4px solid
+        var(--sentinel-green);
+
+      padding:
+        22px 24px;
+
+      color:
+        var(--text-main);
     }
-    code {
-      background: #202020;
-      padding: 2px 4px;
-      border-radius: 3px;
-      font-size: 0.95em;
-    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
     footer {
+
+      border-top:
+        1px solid
+        var(--sentinel-green-dark);
+
+      background:
+        #000201;
+
+      color:
+        var(--text-soft);
+
       text-align: center;
-      padding: 2em;
-      font-size: 0.9em;
-      color: #888;
-      border-top: 1px solid #333;
+
+      padding:
+        35px 20px;
+
+      font-size: 0.82rem;
+
+      letter-spacing: 0.8px;
     }
-    .announcement-block {
-      border: 3px solid #222;
-      border-radius: 10px;
-      background: #111;
-      color: #ffe100;
-      padding: 28px 20px 18px 20px;
-      margin: 30px auto 38px auto;
-      font-size: 1.14em;
+
+
+    .footer-unit {
+
+      color:
+        var(--sentinel-green);
+
       font-weight: bold;
-      max-width: 900px;
-      box-shadow: 0 0 18px #000;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
     }
-    .announcement-block h2,
-    .announcement-block a,
-    .announcement-block ul,
-    .announcement-block li,
-    .announcement-block strong,
-    .announcement-block b,
-    .announcement-block u,
-    .announcement-block em {
-      color: #ffe100 !important;
+
+
+    /* =========================================================
+       TEXT SELECTION
+       ========================================================= */
+
+    ::selection {
+
+      background:
+        var(--sentinel-green-dark);
+
+      color:
+        #000000;
     }
-    .announcement-block a {
-      text-decoration: underline;
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media
+    (max-width: 650px) {
+
+      .status-inner {
+
+        flex-direction: column;
+
+        gap: 2px;
+
+        text-align: center;
+      }
+
+
+      header {
+
+        padding:
+          52px 15px
+          52px;
+      }
+
+
+      header h1 {
+
+        letter-spacing: 3px;
+      }
+
+
+      .subtitle {
+
+        font-size: 0.95rem;
+
+        letter-spacing: 2px;
+      }
+
+
+      .unit-name {
+
+        font-size: 0.72rem;
+
+        letter-spacing: 2px;
+      }
+
+
+      .join-panel {
+
+        margin-left: 12px;
+
+        margin-right: 12px;
+      }
+
+
+      .server-line {
+
+        font-size: 1rem;
+      }
+
+
+      .contact-table,
+      .contact-table tbody,
+      .contact-table tr,
+      .contact-table td {
+
+        display: block;
+
+        width: 100%;
+      }
+
+
+      .contact-table td:first-child {
+
+        width: 100%;
+
+        padding-bottom: 2px;
+      }
+
+
+      .contact-table td:last-child {
+
+        padding-top: 2px;
+      }
+
     }
-    .announcement-block ul {
-      list-style: disc inside;
-      font-weight: bold;
-      margin-top: 12px;
-      margin-bottom: 10px;
-      padding-left: 15px;
-    }
-    .announcement-block li {
-      margin-bottom: 8px;
-    }
+
   </style>
 </head>
-<body>
-  <header>
-    <h1>NATO SF Tactical</h1>
-    <p>Guerrilla Ops. Lone Wolf. Full Send.</p>
-    <p>ARMA 3 | Solo Operator | Realism Only</p>
-  </header>
 
-  <div class="announcement-block">
-    <h2>Announcement</h2>
-    <p>
-      <strong>HEADS UP, OPERATORS:</strong><br>
-      NATO SF Tactical is <em>brand new</em>—and yeah, the server’s emptier than your last bottle of Jack, but that’s how we like it.<br><br>
-      Here’s the standard: You’re not just some trigger-happy conscript. You’re a walking toolbox, and you better know how to use every wrench.<br><br>
-      <strong>Every player is expected to be:</strong>
-      <ul>
-        <li><b>Combat Medic:</b> <u>Advanced Combat Medicine (ACM) medical system is mandatory.</u> If you can’t handle full ACE/ACM medical, triage, airway management, or field surgery, you’ll die more than you respawn.</li>
-        <li><b>Combat Engineer & EOD:</b> Fix, build, blow, or disable. IEDs are your bitch, not your excuse.</li>
-        <li><b>Interpreter:</b> If you can’t eavesdrop and interpret Russian or Taliban chatter, Google Translate is free—use it.</li>
-        <li><b>Pilot:</b> If you can’t fly a helicopter nap-of-the-earth under fire, uninstall now.</li>
-        <li><b>Sniper/Recon:</b> Master the G29 .338, know your range tables, and do real recon—spot, mark, and coordinate.</li>
-        <li><b>Recon Specialist:</b> Get eyes on, send coords, and make it count. Nobody is holding your hand here.</li>
-        <li><b>Radio Operator:</b> ACRE2 short/long range radios, building antennas, keeping comms up, and using the support system (Simplex Support Services)—no room for “uh, how do I use this?”</li>
-      </ul>
-      <br>
-      <b>Can’t keep up?</b> You want extra training?<br>
-      Contact <u>Colt</u> on Steam for a lesson—don’t bug the rest of us in the middle of a firefight.<br><br>
-      <b>No Discord, no drama. TeamSpeak only. English only. Germany-based server.</b><br><br>
-      Server empty? Means less idiots to get you killed.<br>
-      Want in? Join the <a href="https://steamcommunity.com/groups/natosf-tactical">Steam group</a> and the <a href="https://units.arma3.com/unit/nsft">official Bohemia unit</a>, read the SOP, and step up—or don’t show up.<br><br>
-      S!
-    </p>
+
+<body>
+
+
+  <!-- =======================================================
+       STATUS BAR
+       ======================================================= -->
+
+  <div class="status-bar">
+
+    <div class="status-inner">
+
+      <span>
+        NSFTU // OPERATION SENTINEL
+      </span>
+
+      <span class="status-online">
+        ● SERVER ONLINE
+      </span>
+
+      <span>
+        LIVONIA // ENOCH
+      </span>
+
+    </div>
+
   </div>
 
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header>
+
+    <div class="unit-name">
+      NATO SPECIAL FORCES TACTICAL UNIT
+    </div>
+
+    <h1>
+      Operation Sentinel
+    </h1>
+
+    <div class="subtitle">
+      Persistent Tactical Campaign
+    </div>
+
+    <div class="version">
+      SENTINEL V2.03.81 // ARMA 3 // LIVONIA
+    </div>
+
+  </header>
+
+
+
+  <!-- =======================================================
+       JOIN PANEL
+       ======================================================= -->
+
+  <div class="join-panel">
+
+    <h2>
+      Connect to Operation Sentinel
+    </h2>
+
+
+    <div class="server-line">
+
+      <span class="server-label">
+        SERVER:
+      </span>
+
+      <span class="server-ip">
+        85.190.160.165:10600
+      </span>
+
+    </div>
+
+
+    <div class="server-line">
+
+      <span class="server-label">
+        DISCORD:
+      </span>
+
+      <a
+        href="https://discord.gg/6XrZ6t52E"
+        target="_blank"
+        rel="noopener"
+      >
+        discord.gg/6XrZ6t52E
+      </a>
+
+    </div>
+
+
+    <div class="browser-name">
+
+      SERVER BROWSER:
+
+      <strong>
+        Operation Sentinel [ACE/ACRE]
+      </strong>
+
+    </div>
+
+
+    <div class="button-row">
+
+      <a
+        class="button"
+        href="https://discord.gg/6XrZ6t52E"
+        target="_blank"
+        rel="noopener"
+      >
+        Join Discord
+      </a>
+
+
+      <a
+        class="button"
+        href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928"
+        target="_blank"
+        rel="noopener"
+      >
+        Mod Collection
+      </a>
+
+
+      <a
+        class="button"
+        href="https://steamcommunity.com/groups/natosf-tactical"
+        target="_blank"
+        rel="noopener"
+      >
+        Steam Group
+      </a>
+
+
+      <a
+        class="button"
+        href="https://units.arma3.com/unit/nsft"
+        target="_blank"
+        rel="noopener"
+      >
+        ARMA 3 Unit
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       MAIN CONTENT
+       ======================================================= -->
+
   <main>
-    <section>
-      <h2>Steam Group</h2>
-      <p>Join the official Steam Group to connect, recruit, and coordinate:</p>
-      <a href="https://steamcommunity.com/groups/natosf-tactical" class="button" target="_blank">
-        Join NATO SF Tactical
-      </a>
-    </section>
+
+
+    <!-- ABOUT -->
 
     <section>
-      <h2>Bohemia Interactive Unit</h2>
-      <p>Register on the official Bohemia Interactive unit page to show your colors in the ARMA 3 Launcher:</p>
-      <a href="https://units.arma3.com/unit/nsft" class="button" target="_blank">
-        Join the Bohemia Unit
-      </a>
-    </section>
 
-    <section>
-      <h2>About the Server</h2>
-      <p>
-        Our ARMA 3 server is a realism-focused, public tactical sandbox built for single-player excellence. No squads. No Discord. No BS.<br>
-        You play as your own Delta-style operator — medic, engineer, pilot, interpreter, sniper, all-in-one.
+      <div class="section-code">
+        SENTINEL // CAMPAIGN INFORMATION
+      </div>
+
+      <h2>
+        Operation Sentinel
+      </h2>
+
+
+      <p class="lead">
+
+        <strong>
+          Operation Sentinel
+        </strong>
+
+        is the persistent cooperative tactical campaign of the
+
+        <strong class="highlight">
+          NATO Special Forces Tactical Unit
+        </strong>
+
+        on Livonia.
+
       </p>
-      <h2>Server & Comms</h2>
-      <ul>
-        <li>Mission: Hearts and Minds (custom modified)</li>
-        <li>Location: Germany</li>
-        <li>VoIP: TeamSpeak only (no Discord)</li>
-        <li>Server Name: NATO SF Tactical Server | 173.199.107.79:2302</li>
-        <li><strong>Server IP:</strong> <code>173.199.107.79:2302</code></li>
-        <li><strong>TeamSpeak:</strong> <code>FALCON7</code> (No Discord)</li>
-      </ul>
-    </section>
 
-    <section>
-      <h2>About</h2>
-      <p>No squads. No babysitting. Just one-man Delta-style operators. We run Hearts & Minds with custom gear progression and real penalties. Clean gameplay, zero-BS policy.</p>
-    </section>
 
-    <section>
-      <h2>Mission Files</h2>
       <p>
-        Mission files, loadout templates, and code updates will be hosted here in the future. If you're helping with the project and want to contribute,
-        contact the admin.
+
+        New and experienced Arma 3 players are welcome.
+
+        Sentinel is built around serious tactical gameplay,
+        teamwork and persistent consequences without
+        unnecessary bureaucracy.
+
       </p>
-      <p>Coming soon—download mission builds and share your own via GitHub contributors.</p>
+
+
+      <p>
+
+        Player actions matter between sessions.
+
+        Campaign state, player progression, equipment,
+        vehicles and operational conditions persist across
+        server restarts.
+
+      </p>
+
+
+      <p>
+
+        Operations span infantry combat, reconnaissance,
+        medical support, anti-armor warfare, demolitions,
+        heavy weapons, aviation, logistics, recovery and
+        combined-arms missions across hostile-controlled
+        areas of Livonia.
+
+      </p>
+
     </section>
+
+
+
+    <!-- FEATURES -->
+
+    <section>
+
+      <div class="section-code">
+        SENTINEL // SYSTEM CAPABILITIES
+      </div>
+
+      <h2>
+        Campaign Features
+      </h2>
+
+
+      <div class="grid">
+
+
+        <div class="card">
+
+          <h3>
+            Persistent Campaign
+          </h3>
+
+          <ul>
+
+            <li>
+              Persistent Areas of Operation
+            </li>
+
+            <li>
+              Persistent player progression
+            </li>
+
+            <li>
+              Persistent specialization XP
+            </li>
+
+            <li>
+              Persistent Blue Force fleet
+            </li>
+
+            <li>
+              Persistent cargo and equipment
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>
+            Enemy Forces
+          </h3>
+
+          <ul>
+
+            <li>
+              Advanced hostile AI behavior
+            </li>
+
+            <li>
+              Ground QRF response
+            </li>
+
+            <li>
+              Hostile helicopter tracking and response
+            </li>
+
+            <li>
+              Mechanized objective defenses
+            </li>
+
+            <li>
+              Persistent hostile vehicle state
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>
+            Command & Control
+          </h3>
+
+          <ul>
+
+            <li>
+              CENTCOM Tablet
+            </li>
+
+            <li>
+              Command Vehicle — OVERLORD 1
+            </li>
+
+            <li>
+              Tactical mission information
+            </li>
+
+            <li>
+              Blue Force tracking
+            </li>
+
+            <li>
+              Officer tools
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>
+            Aviation
+          </h3>
+
+          <ul>
+
+            <li>
+              TALCS tactical aviation support
+            </li>
+
+            <li>
+              DEMON 1
+            </li>
+
+            <li>
+              LIFTER rotary-wing aircraft
+            </li>
+
+            <li>
+              Tactical helicopter operations
+            </li>
+
+            <li>
+              Air-ground integration
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>
+            Logistics
+          </h3>
+
+          <ul>
+
+            <li>
+              Persistent vehicle fleet
+            </li>
+
+            <li>
+              Vehicle recovery
+            </li>
+
+            <li>
+              Towing
+            </li>
+
+            <li>
+              Persistent cargo crates
+            </li>
+
+            <li>
+              Arsenal and support systems
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="card">
+
+          <h3>
+            Recovery
+          </h3>
+
+          <ul>
+
+            <li>
+              KIA recovery
+            </li>
+
+            <li>
+              Body-bag recovery
+            </li>
+
+            <li>
+              Equipment preservation
+            </li>
+
+            <li>
+              Combat-power management
+            </li>
+
+            <li>
+              Persistent campaign consequences
+            </li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SPECIALIZATIONS -->
+
+    <section>
+
+      <div class="section-code">
+        SENTINEL // PERSONNEL DEVELOPMENT
+      </div>
+
+      <h2>
+        Specializations
+      </h2>
+
+
+      <p>
+
+        Operation Sentinel currently supports six
+        player specializations.
+
+      </p>
+
+
+      <div class="specializations">
+
+        <div class="specialization">
+          RECON
+        </div>
+
+        <div class="specialization">
+          DEMOLITIONS
+        </div>
+
+        <div class="specialization">
+          SNIPER
+        </div>
+
+        <div class="specialization">
+          ANTI-ARMOR
+        </div>
+
+        <div class="specialization">
+          HEAVY GUNNER
+        </div>
+
+        <div class="specialization">
+          MEDIC
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- MEDICAL / COMMS -->
+
+    <section>
+
+      <div class="section-code">
+        SENTINEL // COMBAT SYSTEMS
+      </div>
+
+      <h2>
+        ACE, ACM & ACRE2
+      </h2>
+
+
+      <p>
+
+        Operation Sentinel uses ACE3 and
+        Advanced Combat Medicine to provide detailed
+        tactical and casualty-management gameplay.
+
+      </p>
+
+
+      <p>
+
+        Medical gameplay includes bleeding,
+        airway management, circulation,
+        fractures, medication, transfusion,
+        cardiac emergencies and casualty evacuation.
+
+      </p>
+
+
+      <p>
+
+        Tactical radio communications use
+
+        <strong class="highlight">
+          ACRE2 through TeamSpeak.
+        </strong>
+
+      </p>
+
+    </section>
+
+
+
+    <!-- CONNECTION INFORMATION -->
+
+    <section>
+
+      <div class="section-code">
+        SENTINEL // COMMUNICATIONS DIRECTORY
+      </div>
+
+      <h2>
+        Server & Community
+      </h2>
+
+
+      <table class="contact-table">
+
+
+        <tr>
+
+          <td>
+            Server
+          </td>
+
+          <td>
+
+            <strong>
+              85.190.160.165:10600
+            </strong>
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Server Browser
+          </td>
+
+          <td>
+            Operation Sentinel [ACE/ACRE]
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Discord
+          </td>
+
+          <td>
+
+            <a
+              href="https://discord.gg/6XrZ6t52E"
+              target="_blank"
+              rel="noopener"
+            >
+              https://discord.gg/6XrZ6t52E
+            </a>
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            TeamSpeak / ACRE2
+          </td>
+
+          <td>
+            ts107.nitrado.net:10450
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            TeamSpeak Password
+          </td>
+
+          <td>
+            FALCON7
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Steam Group
+          </td>
+
+          <td>
+
+            <a
+              href="https://steamcommunity.com/groups/natosf-tactical"
+              target="_blank"
+              rel="noopener"
+            >
+              NATO Special Forces Tactical Unit
+            </a>
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Mod Collection
+          </td>
+
+          <td>
+
+            <a
+              href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928"
+              target="_blank"
+              rel="noopener"
+            >
+              Operation Sentinel Steam Workshop Collection
+            </a>
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            ARMA 3 Unit
+          </td>
+
+          <td>
+
+            <a
+              href="https://units.arma3.com/unit/nsft"
+              target="_blank"
+              rel="noopener"
+            >
+              NSFTU ARMA 3 Unit
+            </a>
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Website
+          </td>
+
+          <td>
+
+            <a
+              href="https://colt55.github.io/natosf-tactical.github.io/"
+              target="_blank"
+              rel="noopener"
+            >
+              NSFTU Operation Sentinel
+            </a>
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Contact
+          </td>
+
+          <td>
+
+            <a
+              href="mailto:natosf.command@protonmail.com"
+            >
+              natosf.command@protonmail.com
+            </a>
+
+          </td>
+
+        </tr>
+
+
+      </table>
+
+    </section>
+
+
+
+    <!-- MODS -->
+
+    <section>
+
+      <div class="section-code">
+        SENTINEL // CLIENT CONFIGURATION
+      </div>
+
+      <h2>
+        Mod Environment
+      </h2>
+
+
+      <p>
+
+        Operation Sentinel uses CBA,
+        ACE3, Advanced Combat Medicine,
+        ACRE2, RHS and the current
+        Sentinel support mod environment.
+
+      </p>
+
+
+      <p>
+
+        Players should use the official
+        Steam Workshop collection to ensure
+        their client configuration matches
+        the live server.
+
+      </p>
+
+
+      <a
+        class="button"
+        href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928"
+        target="_blank"
+        rel="noopener"
+      >
+        Open Mod Collection
+      </a>
+
+    </section>
+
+
+
+    <!-- RECRUITMENT -->
+
+    <section>
+
+      <div class="section-code">
+        NSFTU // RECRUITMENT
+      </div>
+
+      <h2>
+        Join the Unit
+      </h2>
+
+
+      <p class="lead">
+
+        New to Arma 3 or an experienced player?
+
+        <strong class="highlight">
+          You are welcome.
+        </strong>
+
+      </p>
+
+
+      <p>
+
+        NSFTU is building a community around
+        serious cooperative tactical gameplay,
+        persistent operations and teamwork.
+
+        We are not interested in unnecessary
+        bureaucracy or artificial barriers to
+        participation.
+
+      </p>
+
+
+      <p>
+
+        If infantry, reconnaissance, medical,
+        anti-armor, demolitions, heavy weapons,
+        aviation, logistics or recovery operations
+        interest you, join the Discord and get
+        connected.
+
+      </p>
+
+
+      <div class="button-row">
+
+        <a
+          class="button"
+          href="https://discord.gg/6XrZ6t52E"
+          target="_blank"
+          rel="noopener"
+        >
+          Join NSFTU Discord
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- RULES -->
+
+    <section>
+
+      <div class="section-code">
+        NSFTU // CONDUCT
+      </div>
+
+      <h2>
+        Rules
+      </h2>
+
+
+      <div class="rules">
+
+        No racism, intentional teamkilling,
+        sabotage, trolling or disruptive behavior.
+
+        Maintain communications discipline,
+        work with the team and respect other players.
+
+      </div>
+
+    </section>
+
+
   </main>
 
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
   <footer>
-    &copy; 2025 NATO SF Tactical. Built with Gen X grit and zero tolerance for Reforger nonsense.<br>
-    &copy; 2025 NATO SF Tactical. Built and maintained by Carl (colt55) & team.
+
+    <div class="footer-unit">
+      NATO SPECIAL FORCES TACTICAL UNIT
+    </div>
+
+    <div>
+      NSFTU // OPERATION SENTINEL
+    </div>
+
+    <div>
+      Persistent Tactical Campaign for Arma 3
+    </div>
+
   </footer>
+
+
 </body>
+
 </html>
