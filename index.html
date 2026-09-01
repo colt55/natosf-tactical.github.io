@@ -23,7 +23,7 @@
     /* =========================================================
        OPERATION SENTINEL
        NATO SPECIAL FORCES TACTICAL UNIT
-       TABLET-INSPIRED WEB UI
+       SENTINEL TABLET-INSPIRED WEB UI
        ========================================================= */
 
     :root {
@@ -91,12 +91,10 @@
       line-height: 1.6;
     }
 
-
     body::before {
       content: "";
 
       position: fixed;
-
       inset: 0;
 
       pointer-events: none;
@@ -114,7 +112,6 @@
       z-index: 9999;
     }
 
-
     a {
       color: var(--sentinel-green);
       text-decoration: none;
@@ -127,11 +124,10 @@
 
 
     /* =========================================================
-       TOP STATUS BAR
+       STATUS BAR
        ========================================================= */
 
     .status-bar {
-
       background: #000000;
 
       border-bottom:
@@ -153,9 +149,7 @@
       text-transform: uppercase;
     }
 
-
     .status-inner {
-
       max-width: 1100px;
 
       margin: auto;
@@ -169,8 +163,7 @@
       gap: 20px;
     }
 
-
-    .status-online {
+    .status-fixed {
       color: var(--sentinel-green);
     }
 
@@ -180,9 +173,7 @@
        ========================================================= */
 
     header {
-
       background:
-
         linear-gradient(
           180deg,
           rgba(2, 7, 4, 0.99),
@@ -199,17 +190,11 @@
         60px;
 
       box-shadow:
-
-        0 8px 30px
-        var(--shadow-black),
-
-        inset 0 -1px 0
-        rgba(158, 209, 5, 0.3);
+        0 8px 30px var(--shadow-black),
+        inset 0 -1px 0 rgba(158, 209, 5, 0.3);
     }
 
-
     .unit-name {
-
       color: var(--text-soft);
 
       font-family:
@@ -226,9 +211,7 @@
       margin-bottom: 14px;
     }
 
-
     header h1 {
-
       margin: 0;
 
       color: var(--text-bright);
@@ -243,14 +226,10 @@
       text-transform: uppercase;
 
       text-shadow:
-
-        0 0 8px
-        rgba(158, 209, 5, 0.2);
+        0 0 8px rgba(158, 209, 5, 0.2);
     }
 
-
     .subtitle {
-
       margin-top: 8px;
 
       color: var(--sentinel-green);
@@ -262,9 +241,7 @@
       text-transform: uppercase;
     }
 
-
     .version {
-
       margin-top: 14px;
 
       color: var(--text-soft);
@@ -281,11 +258,10 @@
 
 
     /* =========================================================
-       MAIN JOIN PANEL
+       JOIN PANEL
        ========================================================= */
 
     .join-panel {
-
       max-width: 1000px;
 
       margin:
@@ -296,7 +272,6 @@
         27px 25px;
 
       background:
-
         linear-gradient(
           180deg,
           rgba(3, 9, 5, 0.99),
@@ -311,25 +286,18 @@
       text-align: center;
 
       box-shadow:
-
-        0 10px 35px
-        var(--shadow-black),
-
-        0 0 20px
-        rgba(122, 166, 26, 0.07);
+        0 10px 35px var(--shadow-black),
+        0 0 20px rgba(122, 166, 26, 0.07);
     }
 
-
     .join-panel h2 {
-
       margin:
         0 0
         20px;
 
       border: 0;
 
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
 
       font-size: 1.35rem;
 
@@ -338,34 +306,24 @@
       text-transform: uppercase;
     }
 
-
     .server-line {
-
       margin:
         10px 0;
 
-      color:
-        var(--text-soft);
+      color: var(--text-soft);
 
       font-size: 1.2rem;
 
       font-weight: bold;
     }
 
-
     .server-label {
-
-      color:
-        var(--sentinel-green);
-
+      color: var(--sentinel-green);
       margin-right: 6px;
     }
 
-
     .server-ip {
-
-      color:
-        var(--text-bright);
+      color: var(--text-bright);
 
       font-family:
         Consolas,
@@ -373,13 +331,9 @@
         monospace;
     }
 
-
     .browser-name {
-
       margin-top: 10px;
-
-      color:
-        var(--text-soft);
+      color: var(--text-soft);
     }
 
 
@@ -388,7 +342,6 @@
        ========================================================= */
 
     .button-row {
-
       margin-top: 24px;
 
       display: flex;
@@ -400,9 +353,7 @@
       gap: 10px;
     }
 
-
     .button {
-
       display: inline-block;
 
       min-width: 150px;
@@ -410,17 +361,14 @@
       padding:
         11px 17px;
 
-      background:
-        var(--button);
+      background: var(--button);
 
       border:
-        1px solid
-        var(--sentinel-green-dark);
+        1px solid var(--sentinel-green-dark);
 
       border-radius: 2px;
 
-      color:
-        var(--text-bright);
+      color: var(--text-bright);
 
       font-size: 0.85rem;
 
@@ -437,21 +385,15 @@
         box-shadow 0.15s ease;
     }
 
-
     .button:hover {
+      background: var(--button-hover);
 
-      background:
-        var(--button-hover);
+      border-color: var(--sentinel-green);
 
-      border-color:
-        var(--sentinel-green);
-
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
 
       box-shadow:
-        0 0 10px
-        var(--shadow-green);
+        0 0 10px var(--shadow-green);
     }
 
 
@@ -460,7 +402,6 @@
        ========================================================= */
 
     main {
-
       max-width: 1000px;
 
       margin: auto;
@@ -470,17 +411,12 @@
         65px;
     }
 
-
     section {
-
       margin-bottom: 55px;
     }
 
-
     .section-code {
-
-      color:
-        var(--text-dim);
+      color: var(--text-dim);
 
       font-family:
         Consolas,
@@ -494,17 +430,13 @@
       text-transform: uppercase;
     }
 
-
     h2 {
-
       margin-top: 6px;
 
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
 
       border-bottom:
-        1px solid
-        var(--sentinel-green-dark);
+        1px solid var(--sentinel-green-dark);
 
       padding-bottom: 8px;
 
@@ -515,38 +447,25 @@
       text-transform: uppercase;
 
       text-shadow:
-
-        0 0 6px
-        rgba(158, 209, 5, 0.12);
+        0 0 6px rgba(158, 209, 5, 0.12);
     }
-
 
     h3 {
-
-      color:
-        var(--text-bright);
+      color: var(--text-bright);
     }
-
 
     p {
-      color:
-        var(--text-main);
+      color: var(--text-main);
     }
 
-
     .lead {
-
-      color:
-        var(--text-bright);
+      color: var(--text-bright);
 
       font-size: 1.1rem;
     }
 
-
     .highlight {
-
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
     }
 
 
@@ -555,7 +474,6 @@
        ========================================================= */
 
     .grid {
-
       display: grid;
 
       grid-template-columns:
@@ -569,13 +487,10 @@
       margin-top: 23px;
     }
 
-
     .card {
-
       position: relative;
 
       background:
-
         linear-gradient(
           180deg,
           rgba(3, 9, 5, 0.96),
@@ -583,57 +498,43 @@
         );
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 2px;
 
-      padding:
-        21px;
+      padding: 21px;
 
       transition:
         border-color 0.15s ease,
         background 0.15s ease;
     }
 
-
     .card::before {
-
       content: "";
 
       position: absolute;
 
       top: 0;
-
       left: 0;
 
       width: 32px;
-
       height: 2px;
 
-      background:
-        var(--sentinel-green-dark);
+      background: var(--sentinel-green-dark);
     }
-
 
     .card:hover {
+      border-color: var(--sentinel-green-dark);
 
-      border-color:
-        var(--sentinel-green-dark);
-
-      background:
-        var(--screen-panel-light);
+      background: var(--screen-panel-light);
     }
 
-
     .card h3 {
-
       margin:
         0 0
         12px;
 
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
 
       font-size: 1rem;
 
@@ -642,28 +543,18 @@
       text-transform: uppercase;
     }
 
-
     ul {
-
       margin-bottom: 0;
-
       padding-left: 20px;
     }
 
-
     li {
-
       margin-bottom: 6px;
-
-      color:
-        var(--text-main);
+      color: var(--text-main);
     }
 
-
     li::marker {
-
-      color:
-        var(--sentinel-green-dark);
+      color: var(--sentinel-green-dark);
     }
 
 
@@ -672,13 +563,11 @@
        ========================================================= */
 
     .specializations {
-
       margin-top: 20px;
 
       display: grid;
 
       grid-template-columns:
-
         repeat(
           auto-fit,
           minmax(145px, 1fr)
@@ -687,21 +576,16 @@
       gap: 8px;
     }
 
-
     .specialization {
-
-      background:
-        var(--screen-panel);
+      background: var(--screen-panel);
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       padding:
         13px 8px;
 
-      color:
-        var(--text-bright);
+      color: var(--text-bright);
 
       text-align: center;
 
@@ -717,23 +601,17 @@
       letter-spacing: 1px;
     }
 
-
     .specialization:hover {
-
-      border-color:
-        var(--sentinel-green);
-
-      color:
-        var(--sentinel-green);
+      border-color: var(--sentinel-green);
+      color: var(--sentinel-green);
     }
 
 
     /* =========================================================
-       COMMS / CONTACT TABLE
+       CONTACT TABLE
        ========================================================= */
 
     .contact-table {
-
       width: 100%;
 
       margin-top: 18px;
@@ -744,37 +622,28 @@
         rgba(3, 9, 5, 0.55);
 
       border:
-        1px solid
-        var(--border-dark);
+        1px solid var(--border-dark);
     }
 
-
     .contact-table td {
-
       padding:
         12px 11px;
 
       vertical-align: top;
 
       border-bottom:
-        1px solid
-        var(--border-dark);
+        1px solid var(--border-dark);
     }
 
-
     .contact-table tr:hover {
-
       background:
         rgba(20, 20, 20, 0.7);
     }
 
-
     .contact-table td:first-child {
-
       width: 190px;
 
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
 
       font-family:
         Consolas,
@@ -790,11 +659,8 @@
       text-transform: uppercase;
     }
 
-
     .contact-table strong {
-
-      color:
-        var(--text-bright);
+      color: var(--text-bright);
     }
 
 
@@ -803,9 +669,7 @@
        ========================================================= */
 
     .rules {
-
       background:
-
         linear-gradient(
           90deg,
           rgba(3, 9, 5, 0.99),
@@ -813,18 +677,15 @@
         );
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-left:
-        4px solid
-        var(--sentinel-green);
+        4px solid var(--sentinel-green);
 
       padding:
         22px 24px;
 
-      color:
-        var(--text-main);
+      color: var(--text-main);
     }
 
 
@@ -833,16 +694,12 @@
        ========================================================= */
 
     footer {
-
       border-top:
-        1px solid
-        var(--sentinel-green-dark);
+        1px solid var(--sentinel-green-dark);
 
-      background:
-        #000201;
+      background: #000201;
 
-      color:
-        var(--text-soft);
+      color: var(--text-soft);
 
       text-align: center;
 
@@ -854,11 +711,8 @@
       letter-spacing: 0.8px;
     }
 
-
     .footer-unit {
-
-      color:
-        var(--sentinel-green);
+      color: var(--sentinel-green);
 
       font-weight: bold;
 
@@ -869,16 +723,12 @@
 
 
     /* =========================================================
-       TEXT SELECTION
+       SELECTION
        ========================================================= */
 
     ::selection {
-
-      background:
-        var(--sentinel-green-dark);
-
-      color:
-        #000000;
+      background: var(--sentinel-green-dark);
+      color: #000000;
     }
 
 
@@ -886,11 +736,9 @@
        MOBILE
        ========================================================= */
 
-    @media
-    (max-width: 650px) {
+    @media (max-width: 650px) {
 
       .status-inner {
-
         flex-direction: column;
 
         gap: 2px;
@@ -898,75 +746,51 @@
         text-align: center;
       }
 
-
       header {
-
         padding:
           52px 15px
           52px;
       }
 
-
       header h1 {
-
         letter-spacing: 3px;
       }
 
-
       .subtitle {
-
         font-size: 0.95rem;
-
         letter-spacing: 2px;
       }
-
 
       .unit-name {
-
         font-size: 0.72rem;
-
         letter-spacing: 2px;
       }
 
-
       .join-panel {
-
         margin-left: 12px;
-
         margin-right: 12px;
       }
 
-
       .server-line {
-
         font-size: 1rem;
       }
-
 
       .contact-table,
       .contact-table tbody,
       .contact-table tr,
       .contact-table td {
-
         display: block;
-
         width: 100%;
       }
 
-
       .contact-table td:first-child {
-
         width: 100%;
-
         padding-bottom: 2px;
       }
 
-
       .contact-table td:last-child {
-
         padding-top: 2px;
       }
-
     }
 
   </style>
@@ -988,8 +812,8 @@
         NSFTU // OPERATION SENTINEL
       </span>
 
-      <span class="status-online">
-        ● SERVER ONLINE
+      <span class="status-fixed">
+        ● DEDICATED SERVER
       </span>
 
       <span>
@@ -1439,10 +1263,8 @@
 
 
       <p>
-
         Operation Sentinel currently supports six
         player specializations.
-
       </p>
 
 
@@ -1478,7 +1300,7 @@
 
 
 
-    <!-- MEDICAL / COMMS -->
+    <!-- MEDICAL AND COMMS -->
 
     <section>
 
@@ -1524,7 +1346,7 @@
 
 
 
-    <!-- CONNECTION INFORMATION -->
+    <!-- SERVER INFORMATION -->
 
     <section>
 
@@ -1547,11 +1369,9 @@
           </td>
 
           <td>
-
             <strong>
               85.190.160.165:10600
             </strong>
-
           </td>
 
         </tr>
@@ -1726,7 +1546,7 @@
 
 
 
-    <!-- MODS -->
+    <!-- MOD ENVIRONMENT -->
 
     <section>
 
@@ -1741,10 +1561,10 @@
 
       <p>
 
-        Operation Sentinel uses CBA,
+        Operation Sentinel currently uses CBA,
         ACE3, Advanced Combat Medicine,
         ACRE2, RHS and the current
-        Sentinel support mod environment.
+        Sentinel supporting mod environment.
 
       </p>
 
@@ -1802,9 +1622,8 @@
         serious cooperative tactical gameplay,
         persistent operations and teamwork.
 
-        We are not interested in unnecessary
-        bureaucracy or artificial barriers to
-        participation.
+        We focus on tactical gameplay without
+        unnecessary bureaucracy.
 
       </p>
 
