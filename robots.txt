@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://colt55.github.io/natosf-tactical.github.io/sitemap.xml
