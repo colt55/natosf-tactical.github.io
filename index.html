@@ -28,7 +28,6 @@
       --text-soft: #9cac9a;
       --text-dim: #71806f;
       --white: #f3f8f1;
-      --danger: #d7a55b;
       --shadow: 0 24px 70px rgba(0,0,0,.42);
       --radius: 18px;
       --radius-small: 12px;
@@ -190,6 +189,7 @@
       transition: transform .16s ease, border-color .16s ease, background .16s ease;
     }
     .btn:hover { transform: translateY(-2px); border-color: var(--green); background: rgba(19, 37, 20, .96); }
+    .btn:focus-visible, .nav-links a:focus-visible, .brand:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 3px; }
     .btn.primary { background: var(--green); color: #091008; border-color: var(--green); }
     .btn.primary:hover { background: var(--green-bright); border-color: var(--green-bright); }
     .btn.ghost { color: var(--green-bright); }
@@ -242,18 +242,8 @@
     .card p { margin: 0; color: var(--text-soft); font-size: .93rem; }
     .card .mini { display: inline-block; margin-bottom: 16px; color: var(--green); font: 700 .66rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; }
 
-    .deployment {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
-    }
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
+    .deployment { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
     .panel-head { padding: 18px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 15px; }
     .panel-head strong { color: var(--white); font-size: .93rem; letter-spacing: .02em; }
     .panel-head span { color: var(--green); font: 700 .68rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; }
@@ -265,57 +255,20 @@
     .row-val strong { color: var(--white); }
 
     .mods { display: grid; grid-template-columns: repeat(7, 1fr); gap: 9px; }
-    .mod {
-      min-height: 120px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-small);
-      background: rgba(7,16,9,.76);
-      padding: 16px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-    }
+    .mod { min-height: 120px; border: 1px solid var(--line); border-radius: var(--radius-small); background: rgba(7,16,9,.76); padding: 16px 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
     .mod strong { color: var(--white); font-size: .86rem; line-height: 1.25; }
     .mod span { color: var(--green-dim); font: 700 .61rem/1.25 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
 
     .fleet { display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; }
-    .asset {
-      padding: 20px;
-      min-height: 170px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(155deg, rgba(15,29,17,.88), rgba(4,10,6,.88));
-    }
+    .asset { padding: 20px; min-height: 170px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(155deg, rgba(15,29,17,.88), rgba(4,10,6,.88)); }
     .asset-tag { color: var(--green); font: 800 .65rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
     .asset h3 { margin: 18px 0 7px; color: var(--white); font-size: 1.08rem; }
     .asset p { margin: 0; color: var(--text-soft); font-size: .83rem; }
 
     .specializations { display: flex; gap: 9px; flex-wrap: wrap; }
-    .spec {
-      border: 1px solid var(--line);
-      background: rgba(6,15,8,.8);
-      border-radius: 999px;
-      padding: 10px 14px;
-      color: var(--text);
-      font: 800 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace;
-      letter-spacing: .08em;
-    }
+    .spec { border: 1px solid var(--line); background: rgba(6,15,8,.8); border-radius: 999px; padding: 10px 14px; color: var(--text); font: 800 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
 
-    .join {
-      margin: 58px 0 0;
-      border: 1px solid var(--line-strong);
-      border-radius: 24px;
-      background:
-        linear-gradient(120deg, rgba(25,45,22,.78), rgba(5,14,7,.96) 56%),
-        var(--panel-strong);
-      padding: clamp(26px, 6vw, 50px);
-      box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 30px;
-    }
+    .join { margin: 58px 0 0; border: 1px solid var(--line-strong); border-radius: 24px; background: linear-gradient(120deg, rgba(25,45,22,.78), rgba(5,14,7,.96) 56%), var(--panel-strong); padding: clamp(26px, 6vw, 50px); box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; }
     .join h2 { margin-top: 0; }
     .join p { margin: 10px 0 0; color: var(--text-soft); max-width: 720px; }
     .join-actions { display: flex; flex-direction: column; gap: 9px; min-width: 190px; }
@@ -399,91 +352,38 @@
       <section class="hero">
         <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Persistent tactical campaign // Stubbhult</div>
         <h1>SENTINEL</h1>
-        <p class="hero-sub">
-          The persistent Arma 3 campaign of the <strong>NATO Special Forces Tactical Unit</strong>. Serious cooperative tactical gameplay, persistent progression, dynamic operations, aviation, logistics, recovery and combined-arms missions on Stubbhult.
-        </p>
-
+        <p class="hero-sub">The persistent Arma 3 campaign of the <strong>NATO Special Forces Tactical Unit</strong>. Serious cooperative tactical gameplay, persistent progression, dynamic operations, aviation, logistics, recovery and combined-arms missions on Stubbhult.</p>
         <div class="hero-actions">
           <a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Join NSFTU Discord</a>
           <a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop Collection</a>
           <a class="btn ghost" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3353189981" target="_blank" rel="noopener">Stubbhult Terrain</a>
         </div>
-
         <div class="status-grid" aria-label="Current deployment status">
-          <div class="status-item">
-            <div class="kicker">Current build</div>
-            <div class="value green">V2.04.03</div>
-          </div>
-          <div class="status-item">
-            <div class="kicker">Terrain</div>
-            <div class="value">Stubbhult</div>
-          </div>
-          <div class="status-item">
-            <div class="kicker">Required mods</div>
-            <div class="value">7</div>
-          </div>
-          <div class="status-item">
-            <div class="kicker">Paid DLC ownership</div>
-            <div class="value green">Not required</div>
-          </div>
+          <div class="status-item"><div class="kicker">Current build</div><div class="value green">V2.04.03</div></div>
+          <div class="status-item"><div class="kicker">Terrain</div><div class="value">Stubbhult</div></div>
+          <div class="status-item"><div class="kicker">Required mods</div><div class="value">7</div></div>
+          <div class="status-item"><div class="kicker">Paid DLC ownership</div><div class="value green">Not required</div></div>
         </div>
       </section>
     </div>
 
     <section id="campaign">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">SENTINEL // Campaign architecture</div>
-            <h2>Built for continuity, not one-off missions.</h2>
-            <p class="section-copy">The campaign carries meaningful state between sessions. Player development, operational activity, Blue Force assets and recovery systems are designed around long-term cooperative play.</p>
-          </div>
-        </div>
-
+        <div class="section-head"><div><div class="section-label">SENTINEL // Campaign architecture</div><h2>Built for continuity, not one-off missions.</h2><p class="section-copy">The campaign carries meaningful state between sessions. Player development, operational activity, Blue Force assets and recovery systems are designed around long-term cooperative play.</p></div></div>
         <div class="cards">
-          <article class="card" data-code="01">
-            <span class="mini">Persistence</span>
-            <h3>Persistent Campaign</h3>
-            <p>Player progression, ranks, specialization XP, Blue Force vehicles, cargo and operational state persist across server restarts.</p>
-          </article>
-          <article class="card" data-code="02">
-            <span class="mini">Operations</span>
-            <h3>Dynamic Areas of Operation</h3>
-            <p>AO generation, objective selection, terrain-aware sites and hostile response systems keep operations variable and locally relevant.</p>
-          </article>
-          <article class="card" data-code="03">
-            <span class="mini">Enemy response</span>
-            <h3>AI & QRF</h3>
-            <p>Ground reaction forces, mechanized defenses and hostile tactical behavior create escalation beyond the immediate objective area.</p>
-          </article>
-          <article class="card" data-code="04">
-            <span class="mini">Command</span>
-            <h3>CENTCOM Tablet & Officer Tools</h3>
-            <p>Mission information, Blue Force tracking, command functions and officer-level fleet tools support coordinated operations.</p>
-          </article>
-          <article class="card" data-code="05">
-            <span class="mini">Air operations</span>
-            <h3>TALCS & Tactical Airlift</h3>
-            <p>Tactical aviation support integrates with dedicated rotary-wing lift assets for troop movement, vehicle transport and recovery.</p>
-          </article>
-          <article class="card" data-code="06">
-            <span class="mini">Logistics</span>
-            <h3>Towing, Recovery & Sustainment</h3>
-            <p>Vehicle towing, wreck recovery, logistics vehicles, persistent cargo and support systems make battlefield sustainment part of the mission.</p>
-          </article>
+          <article class="card" data-code="01"><span class="mini">Persistence</span><h3>Persistent Campaign</h3><p>Player progression, ranks, specialization XP, Blue Force vehicles, cargo and operational state persist across server restarts.</p></article>
+          <article class="card" data-code="02"><span class="mini">Operations</span><h3>Dynamic Areas of Operation</h3><p>AO generation, objective selection, terrain-aware sites and hostile response systems keep operations variable and locally relevant.</p></article>
+          <article class="card" data-code="03"><span class="mini">Enemy response</span><h3>AI & QRF</h3><p>Ground reaction forces, mechanized defenses and hostile tactical behavior create escalation beyond the immediate objective area.</p></article>
+          <article class="card" data-code="04"><span class="mini">Command</span><h3>CENTCOM Tablet & Officer Tools</h3><p>Mission information, Blue Force tracking, command functions and officer-level fleet tools support coordinated operations.</p></article>
+          <article class="card" data-code="05"><span class="mini">Air operations</span><h3>TALCS & Tactical Airlift</h3><p>Tactical aviation support integrates with dedicated rotary-wing lift assets for troop movement, vehicle transport and recovery.</p></article>
+          <article class="card" data-code="06"><span class="mini">Logistics</span><h3>Towing, Recovery & Sustainment</h3><p>Vehicle towing, wreck recovery, logistics vehicles, persistent cargo and support systems make battlefield sustainment part of the mission.</p></article>
         </div>
       </div>
     </section>
 
     <section id="deployment">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">NSFTU // Live deployment</div>
-            <h2>Current server and mission information.</h2>
-          </div>
-        </div>
-
+        <div class="section-head"><div><div class="section-label">NSFTU // Live deployment</div><h2>Current server and mission information.</h2></div></div>
         <div class="deployment">
           <div class="panel">
             <div class="panel-head"><strong>Server Access</strong><span>Online environment</span></div>
@@ -495,7 +395,6 @@
               <div class="row"><div class="row-key">Operational clock</div><div class="row-val"><span id="utc-clock" class="mono">UTC --:--:--</span></div></div>
             </div>
           </div>
-
           <div class="panel">
             <div class="panel-head"><strong>Mission Status</strong><span>Authoritative build</span></div>
             <div class="rows">
@@ -512,15 +411,7 @@
 
     <section id="mods">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">SENTINEL // Client configuration</div>
-            <h2>Current authoritative mod stack.</h2>
-            <p class="section-copy">These seven mods define the current Stubbhult deployment. The Workshop collection remains the preferred installation path; this list is the authoritative requirement.</p>
-          </div>
-          <a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Open Collection</a>
-        </div>
-
+        <div class="section-head"><div><div class="section-label">SENTINEL // Client configuration</div><h2>Current authoritative mod stack.</h2><p class="section-copy">These seven mods define the current Stubbhult deployment. The Workshop collection remains the preferred installation path; this list is the authoritative requirement.</p></div><a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Open Collection</a></div>
         <div class="mods" aria-label="Required mods">
           <div class="mod"><strong>CBA_A3</strong><span>Core framework</span></div>
           <div class="mod"><strong>ACE3</strong><span>Interaction / realism</span></div>
@@ -535,67 +426,18 @@
 
     <section id="fleet">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">SENTINEL // Persistent Blue Force assets</div>
-            <h2>Ground fleet and tactical air.</h2>
-            <p class="section-copy">Core NSFTU vehicles are persistent campaign assets. Recovery, towing, logistics and tactical lift are integrated into normal operations.</p>
-          </div>
-        </div>
-
+        <div class="section-head"><div><div class="section-label">SENTINEL // Persistent Blue Force assets</div><h2>Ground fleet and tactical air.</h2><p class="section-copy">Core NSFTU vehicles are persistent campaign assets. Recovery, towing, logistics and tactical lift are integrated into normal operations.</p></div></div>
         <div class="fleet">
-          <article class="asset">
-            <div class="asset-tag">Ground // Persistent</div>
-            <h3>EAGLE 1–4</h3>
-            <p>BWMod Eagle tactical vehicles. Four persistent NSFTU mobility platforms.</p>
-          </article>
-          <article class="asset">
-            <div class="asset-tag">Command // Medical</div>
-            <h3>OVERLORD 1</h3>
-            <p>BWMod Dingo command vehicle with ACE medical-vehicle capability.</p>
-          </article>
-          <article class="asset">
-            <div class="asset-tag">Logistics // Persistent</div>
-            <h3>MULTI 1</h3>
-            <p>BWMod Multi logistics platform supporting campaign sustainment.</p>
-          </article>
-          <article class="asset">
-            <div class="asset-tag">Air // Heavy Lift</div>
-            <h3>LIFTER 1</h3>
-            <p>BWMod NH90 TTH heavy tactical airlifter for personnel, vehicles and recovery loads.</p>
-          </article>
-          <article class="asset">
-            <div class="asset-tag">Air // Light Utility</div>
-            <h3>LIFTER 2</h3>
-            <p>Base-game Hummingbird providing light rotary-wing mobility without a paid DLC requirement.</p>
-          </article>
+          <article class="asset"><div class="asset-tag">Ground // Persistent</div><h3>EAGLE 1–4</h3><p>BWMod Eagle tactical vehicles. Four persistent NSFTU mobility platforms.</p></article>
+          <article class="asset"><div class="asset-tag">Command // Medical</div><h3>OVERLORD 1</h3><p>BWMod Dingo command vehicle with ACE medical-vehicle capability.</p></article>
+          <article class="asset"><div class="asset-tag">Logistics // Persistent</div><h3>MULTI 1</h3><p>BWMod Multi logistics platform supporting campaign sustainment.</p></article>
+          <article class="asset"><div class="asset-tag">Air // Heavy Lift</div><h3>LIFTER 1</h3><p>BWMod NH90 TTH heavy tactical airlifter for personnel, vehicles and recovery loads.</p></article>
+          <article class="asset"><div class="asset-tag">Air // Light Utility</div><h3>LIFTER 2</h3><p>Base-game Hummingbird providing light rotary-wing mobility without a paid DLC requirement.</p></article>
         </div>
-
-        <div style="margin-top:34px">
-          <div class="section-label" style="margin-bottom:14px">Player specializations</div>
-          <div class="specializations">
-            <span class="spec">RECON</span>
-            <span class="spec">DEMOLITIONS</span>
-            <span class="spec">SNIPER</span>
-            <span class="spec">ANTI-ARMOR</span>
-            <span class="spec">HEAVY GUNNER</span>
-            <span class="spec">MEDIC</span>
-          </div>
-        </div>
-
+        <div style="margin-top:34px"><div class="section-label" style="margin-bottom:14px">Player specializations</div><div class="specializations"><span class="spec">RECON</span><span class="spec">DEMOLITIONS</span><span class="spec">SNIPER</span><span class="spec">ANTI-ARMOR</span><span class="spec">HEAVY GUNNER</span><span class="spec">MEDIC</span></div></div>
         <div class="join" id="join">
-          <div>
-            <div class="section-label">NATO Special Forces Tactical Unit</div>
-            <h2>Join the unit.</h2>
-            <p>New and experienced Arma 3 players are welcome. NSFTU focuses on disciplined cooperative tactical gameplay, teamwork and persistent operations without unnecessary bureaucracy.</p>
-            <div class="copy-note" id="copy-note" aria-live="polite"></div>
-          </div>
-          <div class="join-actions">
-            <a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a>
-            <button class="btn" type="button" id="copy-server">Copy Server Address</button>
-            <a class="btn" href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a>
-            <a class="btn" href="https://units.arma3.com/unit/nsft" target="_blank" rel="noopener">Arma 3 Unit</a>
-          </div>
+          <div><div class="section-label">NATO Special Forces Tactical Unit</div><h2>Join the unit.</h2><p>New and experienced Arma 3 players are welcome. NSFTU focuses on disciplined cooperative tactical gameplay, teamwork and persistent operations without unnecessary bureaucracy.</p><div class="copy-note" id="copy-note" aria-live="polite"></div></div>
+          <div class="join-actions"><a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><button class="btn" type="button" id="copy-server">Copy Server Address</button><a class="btn" href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a class="btn" href="https://units.arma3.com/unit/nsft" target="_blank" rel="noopener">Arma 3 Unit</a></div>
         </div>
       </div>
     </section>
@@ -603,16 +445,8 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <div>
-        <div class="footer-name">NATO SPECIAL FORCES TACTICAL UNIT</div>
-        <div class="footer-copy">NSFTU // SENTINEL // Persistent Tactical Campaign for Arma 3 // <span id="year"></span></div>
-      </div>
-      <div class="footer-links">
-        <a href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a>
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop</a>
-        <a href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a>
-        <a href="mailto:natosf.command@protonmail.com">Contact</a>
-      </div>
+      <div><div class="footer-name">NATO SPECIAL FORCES TACTICAL UNIT</div><div class="footer-copy">NSFTU // SENTINEL // Persistent Tactical Campaign for Arma 3 // <span id="year"></span></div></div>
+      <div class="footer-links"><a href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop</a><a href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a href="mailto:natosf.command@protonmail.com">Contact</a></div>
     </div>
   </footer>
 
@@ -623,23 +457,13 @@
       const copyButton = document.getElementById('copy-server');
       const copyNote = document.getElementById('copy-note');
       const server = '85.190.160.165:10600';
-
-      function updateClock() {
-        const now = new Date();
-        clock.textContent = 'UTC ' + now.toISOString().slice(11, 19);
-      }
-
+      function updateClock() { clock.textContent = 'UTC ' + new Date().toISOString().slice(11, 19); }
       updateClock();
       setInterval(updateClock, 1000);
       year.textContent = new Date().getFullYear();
-
       copyButton.addEventListener('click', async function () {
-        try {
-          await navigator.clipboard.writeText(server);
-          copyNote.textContent = 'SERVER ADDRESS COPIED // ' + server;
-        } catch (error) {
-          copyNote.textContent = 'SERVER // ' + server;
-        }
+        try { await navigator.clipboard.writeText(server); copyNote.textContent = 'SERVER ADDRESS COPIED // ' + server; }
+        catch (error) { copyNote.textContent = 'SERVER // ' + server; }
       });
     })();
   </script>
