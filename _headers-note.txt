@@ -1,0 +1,1 @@
+SENTINEL is hosted as a static GitHub Pages site. No server-side runtime, analytics package, external UI framework, or paid hosting dependency is required.
