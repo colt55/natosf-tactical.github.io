@@ -1,0 +1,9 @@
+{
+  "name": "SENTINEL | NATO Special Forces Tactical Unit",
+  "short_name": "SENTINEL",
+  "start_url": "/natosf-tactical.github.io/",
+  "display": "standalone",
+  "background_color": "#020503",
+  "theme_color": "#071109",
+  "description": "Official NSFTU public information hub for the SENTINEL persistent Arma 3 campaign."
+}
