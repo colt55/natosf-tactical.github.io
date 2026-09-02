@@ -1,0 +1,3 @@
+Contact: mailto:natosf.command@protonmail.com
+Preferred-Languages: en
+Canonical: https://colt55.github.io/natosf-tactical.github.io/
