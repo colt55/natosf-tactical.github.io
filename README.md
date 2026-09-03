@@ -8,7 +8,6 @@ Official public information hub for **SENTINEL**, the persistent tactical co-op 
 - **Build:** V2.04.03
 - **Terrain:** Stubbhult
 - **Gameplay:** Persistent tactical co-op / MilSim
-- **Paid DLC:** No official paid DLC ownership required
 
 **Stubbhult Workshop:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3353189981
