@@ -56,9 +56,9 @@ RECON · DEMOLITIONS · SNIPER · ANTI-ARMOR · HEAVY GUNNER · MEDIC
 
 ## Persistent Rank, XP & Ranked Arsenal
 
-SENTINEL maintains a server-authoritative career record for each operator by **Steam UID**. The record includes combat kills, deaths, career points, military rank, selected specialization, persistent XP for every specialization, and the resulting Ranked Arsenal equipment tier.
+SENTINEL maintains a persistent career record for each operator by **Steam UID**. The record includes combat kills, deaths, career points, military rank, selected specialization, persistent XP for every specialization, and the resulting Ranked Arsenal equipment tier.
 
-Progression is part of the campaign database and is designed to continue across mission restarts and deployments. The current terrain-migration model carries the portable UID progression record forward while leaving terrain-specific AO, vehicle and objective state behind. Moving to a different server host requires the SENTINEL server profile/profileNamespace database to be migrated with the campaign.
+That operator career carries forward across SENTINEL deployments. Mission restarts, new mission builds, terrain changes, faction changes and playable-role changes do not reset the player's progression. The battlefield can change; the operator record continues.
 
 **Full system documentation:** [Persistent Rank, XP, Specializations & Ranked Arsenal](PROGRESSION.md)
 
