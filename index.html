@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071109">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="SENTINEL is the persistent tactical Arma 3 campaign of the NATO Special Forces Tactical Unit (NSFTU), currently deployed on Stubbhult with the current seven-mod client stack.">
+  <meta name="description" content="SENTINEL is the persistent tactical Arma 3 campaign of the NATO Special Forces Tactical Unit (NSFTU), featuring persistent operator ranks, specialization XP, Ranked Arsenal progression and dynamic operations on Stubbhult.">
   <meta property="og:title" content="SENTINEL | NATO Special Forces Tactical Unit">
-  <meta property="og:description" content="Persistent tactical co-op on Stubbhult. NSFTU campaign systems, current mod stack, server access and unit information.">
+  <meta property="og:description" content="Persistent tactical co-op on Stubbhult with a continuing operator career, ranks, specialization XP, Ranked Arsenal progression, dynamic operations and tactical aviation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://colt55.github.io/natosf-tactical.github.io/">
   <title>SENTINEL | NATO Special Forces Tactical Unit</title>
@@ -66,7 +66,6 @@
     a { color: inherit; }
     button, a { -webkit-tap-highlight-color: transparent; }
     ::selection { background: var(--green); color: #061007; }
-
     .wrap { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
 
     .topbar {
@@ -77,133 +76,48 @@
       background: rgba(2, 7, 3, .84);
       backdrop-filter: blur(16px);
     }
-
-    .nav {
-      min-height: 66px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      min-width: 0;
-    }
-
+    .nav { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
     .brand-mark {
-      width: 37px;
-      height: 37px;
-      border: 1px solid var(--line-strong);
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      color: var(--green-bright);
-      box-shadow: inset 0 0 24px rgba(168, 216, 78, .08), 0 0 26px rgba(168, 216, 78, .06);
-      font-weight: 900;
-      letter-spacing: -.04em;
+      width: 37px; height: 37px; border: 1px solid var(--line-strong); border-radius: 9px;
+      display: grid; place-items: center; color: var(--green-bright);
+      box-shadow: inset 0 0 24px rgba(168,216,78,.08), 0 0 26px rgba(168,216,78,.06);
+      font-weight: 900; letter-spacing: -.04em;
     }
-
     .brand-text { display: grid; line-height: 1.05; }
     .brand-text strong { color: var(--white); font-size: .93rem; letter-spacing: .18em; }
     .brand-text span { color: var(--text-dim); font: 600 .66rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; margin-top: 5px; }
-
     .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
-    .nav-links a {
-      padding: 9px 11px;
-      border-radius: 9px;
-      color: var(--text-soft);
-      text-decoration: none;
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-    }
+    .nav-links a { padding: 9px 11px; border-radius: 9px; color: var(--text-soft); text-decoration: none; font-size: .82rem; font-weight: 700; letter-spacing: .04em; }
     .nav-links a:hover { background: rgba(168,216,78,.07); color: var(--white); }
 
     .hero { position: relative; padding: 96px 0 62px; }
     .hero::after {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      right: -230px;
-      top: 10px;
-      border: 1px solid rgba(168,216,78,.06);
-      border-radius: 50%;
-      box-shadow: 0 0 0 70px rgba(168,216,78,.018), 0 0 0 150px rgba(168,216,78,.012);
-      pointer-events: none;
+      content: ""; position: absolute; width: 520px; height: 520px; right: -230px; top: 10px;
+      border: 1px solid rgba(168,216,78,.06); border-radius: 50%;
+      box-shadow: 0 0 0 70px rgba(168,216,78,.018), 0 0 0 150px rgba(168,216,78,.012); pointer-events: none;
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--green-bright);
-      font: 700 .74rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-    .pulse {
-      width: 8px; height: 8px; border-radius: 50%; background: var(--green);
-      box-shadow: 0 0 0 0 rgba(168,216,78,.55);
-      animation: pulse 2.3s infinite;
-    }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green-bright); font: 700 .74rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .18em; text-transform: uppercase; }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(168,216,78,.55); animation: pulse 2.3s infinite; }
     @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgba(168,216,78,0); } 100% { box-shadow: 0 0 0 0 rgba(168,216,78,0); } }
-
-    h1 {
-      margin: 18px 0 14px;
-      color: var(--white);
-      font-size: clamp(3.5rem, 10vw, 7.8rem);
-      line-height: .87;
-      letter-spacing: -.075em;
-      font-weight: 900;
-    }
-    .hero-sub {
-      max-width: 790px;
-      margin: 0;
-      color: #b8c8b5;
-      font-size: clamp(1.05rem, 2vw, 1.34rem);
-    }
+    h1 { margin: 18px 0 14px; color: var(--white); font-size: clamp(3.5rem, 10vw, 7.8rem); line-height: .87; letter-spacing: -.075em; font-weight: 900; }
+    .hero-sub { max-width: 790px; margin: 0; color: #b8c8b5; font-size: clamp(1.05rem, 2vw, 1.34rem); }
     .hero-sub strong { color: var(--white); font-weight: 750; }
-
     .hero-actions { display: flex; gap: 11px; flex-wrap: wrap; margin-top: 30px; }
+
     .btn {
-      border: 1px solid var(--line-strong);
-      border-radius: 11px;
-      min-height: 44px;
-      padding: 0 17px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      color: var(--white);
-      background: rgba(11, 22, 12, .84);
-      text-decoration: none;
-      font-weight: 800;
-      font-size: .84rem;
-      letter-spacing: .03em;
-      cursor: pointer;
-      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      border: 1px solid var(--line-strong); border-radius: 11px; min-height: 44px; padding: 0 17px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px; color: var(--white);
+      background: rgba(11,22,12,.84); text-decoration: none; font-weight: 800; font-size: .84rem; letter-spacing: .03em;
+      cursor: pointer; transition: transform .16s ease, border-color .16s ease, background .16s ease;
     }
-    .btn:hover { transform: translateY(-2px); border-color: var(--green); background: rgba(19, 37, 20, .96); }
+    .btn:hover { transform: translateY(-2px); border-color: var(--green); background: rgba(19,37,20,.96); }
     .btn:focus-visible, .nav-links a:focus-visible, .brand:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 3px; }
     .btn.primary { background: var(--green); color: #091008; border-color: var(--green); }
     .btn.primary:hover { background: var(--green-bright); border-color: var(--green-bright); }
     .btn.ghost { color: var(--green-bright); }
 
-    .status-grid {
-      margin-top: 50px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: rgba(5, 13, 7, .72);
-      box-shadow: var(--shadow);
-    }
+    .status-grid { margin-top: 50px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: rgba(5,13,7,.72); box-shadow: var(--shadow); }
     .status-item { padding: 20px 22px; min-width: 0; }
     .status-item + .status-item { border-left: 1px solid var(--line); }
     .kicker { color: var(--text-dim); font: 700 .66rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; }
@@ -218,29 +132,29 @@
     .section-copy { margin: 12px 0 0; color: var(--text-soft); max-width: 760px; }
 
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .card {
-      position: relative;
-      min-height: 210px;
-      padding: 23px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(10,22,12,.86), rgba(4,11,6,.82));
-      box-shadow: 0 14px 45px rgba(0,0,0,.18);
-      overflow: hidden;
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
-    }
+    .card { position: relative; min-height: 210px; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(10,22,12,.86), rgba(4,11,6,.82)); box-shadow: 0 14px 45px rgba(0,0,0,.18); overflow: hidden; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
     .card:hover { transform: translateY(-3px); border-color: var(--line-strong); background: linear-gradient(180deg, rgba(15,31,17,.94), rgba(6,14,8,.9)); }
-    .card::after {
-      content: attr(data-code);
-      position: absolute;
-      right: 14px; top: 12px;
-      color: rgba(168,216,78,.12);
-      font: 900 2.7rem/1 ui-monospace, SFMono-Regular, Consolas, monospace;
-      letter-spacing: -.08em;
-    }
+    .card::after { content: attr(data-code); position: absolute; right: 14px; top: 12px; color: rgba(168,216,78,.12); font: 900 2.7rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: -.08em; }
     .card h3 { margin: 0 0 10px; color: var(--white); font-size: 1.1rem; }
     .card p { margin: 0; color: var(--text-soft); font-size: .93rem; }
     .card .mini { display: inline-block; margin-bottom: 16px; color: var(--green); font: 700 .66rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; }
+
+    .progression-shell { border: 1px solid var(--line-strong); border-radius: 24px; padding: clamp(22px, 5vw, 42px); background: radial-gradient(circle at 90% 0%, rgba(168,216,78,.12), transparent 34%), linear-gradient(145deg, rgba(13,29,15,.96), rgba(3,9,5,.96)); box-shadow: var(--shadow); }
+    .progression-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 28px; }
+    .progression-card { min-height: 185px; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(5,14,7,.72); }
+    .progression-card .mini { display: block; margin-bottom: 12px; color: var(--green); font: 800 .64rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; }
+    .progression-card h3 { margin: 0 0 9px; color: var(--white); font-size: 1.05rem; }
+    .progression-card p { margin: 0; color: var(--text-soft); font-size: .9rem; }
+    .progression-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .progression-note { margin: 22px 0 0; padding-left: 16px; border-left: 2px solid var(--green); color: var(--text-soft); font-size: .9rem; }
+    .rank-title { margin: 38px 0 14px; color: var(--white); font-size: 1.05rem; font-weight: 850; }
+    .rank-ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .rank-chip { min-height: 76px; padding: 12px 13px; border: 1px solid rgba(168,216,78,.16); border-radius: 11px; background: rgba(4,11,6,.72); display: grid; align-content: center; gap: 3px; }
+    .rank-chip .rank-code { color: var(--green-bright); font: 900 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
+    .rank-chip .rank-name { color: var(--white); font-size: .78rem; font-weight: 750; line-height: 1.25; }
+    .rank-chip .rank-pts { color: var(--text-dim); font: 700 .62rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .specializations { display: flex; gap: 9px; flex-wrap: wrap; }
+    .spec { border: 1px solid var(--line); background: rgba(6,15,8,.8); border-radius: 999px; padding: 10px 14px; color: var(--text); font: 800 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
 
     .deployment { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
     .panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
@@ -265,9 +179,6 @@
     .asset h3 { margin: 18px 0 7px; color: var(--white); font-size: 1.08rem; }
     .asset p { margin: 0; color: var(--text-soft); font-size: .83rem; }
 
-    .specializations { display: flex; gap: 9px; flex-wrap: wrap; }
-    .spec { border: 1px solid var(--line); background: rgba(6,15,8,.8); border-radius: 999px; padding: 10px 14px; color: var(--text); font: 800 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
-
     .join { margin: 58px 0 0; border: 1px solid var(--line-strong); border-radius: 24px; background: linear-gradient(120deg, rgba(25,45,22,.78), rgba(5,14,7,.96) 56%), var(--panel-strong); padding: clamp(26px, 6vw, 50px); box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; }
     .join h2 { margin-top: 0; }
     .join p { margin: 10px 0 0; color: var(--text-soft); max-width: 720px; }
@@ -280,22 +191,23 @@
     .footer-links { display: flex; justify-content: flex-end; gap: 14px; flex-wrap: wrap; }
     .footer-links a { color: var(--text-soft); text-decoration: none; font-size: .79rem; font-weight: 700; }
     .footer-links a:hover { color: var(--green-bright); }
-
     .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
     .copy-note { min-height: 20px; margin-top: 9px; color: var(--green); font: 700 .68rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
 
     @media (max-width: 1000px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
+      .progression-grid { grid-template-columns: repeat(2, 1fr); }
+      .rank-ladder { grid-template-columns: repeat(4, 1fr); }
       .mods { grid-template-columns: repeat(4, 1fr); }
       .fleet { grid-template-columns: repeat(3, 1fr); }
     }
-
     @media (max-width: 760px) {
       .nav { align-items: flex-start; padding: 14px 0; }
       .nav-links { display: none; }
       .hero { padding-top: 70px; }
       .hero::after { display: none; }
       .deployment { grid-template-columns: 1fr; }
+      .rank-ladder { grid-template-columns: repeat(3, 1fr); }
       .join { grid-template-columns: 1fr; }
       .join-actions { flex-direction: row; flex-wrap: wrap; min-width: 0; }
       .footer-inner { grid-template-columns: 1fr; }
@@ -304,19 +216,18 @@
       .mods { grid-template-columns: repeat(2, 1fr); }
       .row { grid-template-columns: 1fr; gap: 5px; }
     }
-
     @media (max-width: 520px) {
       .wrap { width: min(calc(100% - 24px), var(--max)); }
       .hero { padding-top: 58px; }
       h1 { font-size: clamp(3.4rem, 22vw, 5.4rem); }
       .status-grid { grid-template-columns: 1fr; }
       .status-item + .status-item { border-left: 0; border-top: 1px solid var(--line); }
-      .cards, .fleet { grid-template-columns: 1fr; }
+      .cards, .fleet, .progression-grid { grid-template-columns: 1fr; }
+      .rank-ladder { grid-template-columns: repeat(2, 1fr); }
       .mods { grid-template-columns: 1fr 1fr; }
       .section-head { align-items: flex-start; flex-direction: column; }
-      .hero-actions .btn, .join-actions .btn { width: 100%; }
+      .hero-actions .btn, .join-actions .btn, .progression-actions .btn { width: 100%; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -336,6 +247,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#campaign">Campaign</a>
+        <a href="#progression">Progression</a>
         <a href="#deployment">Deployment</a>
         <a href="#mods">Mods</a>
         <a href="#fleet">Assets</a>
@@ -373,6 +285,68 @@
           <article class="card" data-code="04"><span class="mini">Command</span><h3>CENTCOM Tablet & Officer Tools</h3><p>Mission information, Blue Force tracking, command functions and officer-level fleet tools support coordinated operations.</p></article>
           <article class="card" data-code="05"><span class="mini">Air operations</span><h3>TALCS & Tactical Airlift</h3><p>Tactical aviation support integrates with dedicated rotary-wing lift assets for troop movement, vehicle transport and recovery.</p></article>
           <article class="card" data-code="06"><span class="mini">Logistics</span><h3>Towing, Recovery & Sustainment</h3><p>Vehicle towing, wreck recovery, logistics vehicles, persistent cargo and support systems make battlefield sustainment part of the mission.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="progression">
+      <div class="wrap">
+        <div class="progression-shell">
+          <div class="section-head">
+            <div>
+              <div class="section-label">SENTINEL // Signature progression system</div>
+              <h2>The battlefield changes. Your operator career does not.</h2>
+              <p class="section-copy">SENTINEL maintains a persistent military career for every operator. Rank, career PTS, combat record, selected specialization, specialization XP and Ranked Arsenal progression continue across mission updates and new operational deployments—including changes of terrain, faction, playable slot or character.</p>
+            </div>
+          </div>
+
+          <div class="progression-grid">
+            <article class="progression-card"><span class="mini">Career rank</span><h3>29 military ranks</h3><p>Earn career PTS through combat and mission success. Promotion is calculated from the persistent operator record, from Private through General of the Army.</p></article>
+            <article class="progression-card"><span class="mini">Role development</span><h3>Independent specialization XP</h3><p>RECON, DEMOLITIONS, SNIPER, ANTI-ARMOR, HEAVY GUNNER and MEDIC each maintain their own persistent XP progression.</p></article>
+            <article class="progression-card"><span class="mini">Equipment authorization</span><h3>Ranked Arsenal</h3><p>Your selected specialization and its XP tier determine access to role-specific equipment. Higher tiers are cumulative, so previously unlocked equipment remains authorized.</p></article>
+            <article class="progression-card"><span class="mini">Campaign continuity</span><h3>One operator career</h3><p>A new map, faction or deployment is a new battlefield—not a new career. The operator record carries forward as SENTINEL evolves.</p></article>
+          </div>
+
+          <div class="rank-title">Military rank ladder // PTS thresholds</div>
+          <div class="rank-ladder" aria-label="SENTINEL military rank ladder">
+            <div class="rank-chip"><span class="rank-code">PVT</span><span class="rank-name">Private</span><span class="rank-pts">0 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">PV2</span><span class="rank-name">Private Second Class</span><span class="rank-pts">5 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">PFC</span><span class="rank-name">Private First Class</span><span class="rank-pts">15 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">SPC</span><span class="rank-name">Specialist</span><span class="rank-pts">30 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CPL</span><span class="rank-name">Corporal</span><span class="rank-pts">50 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">SGT</span><span class="rank-name">Sergeant</span><span class="rank-pts">75 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">SSG</span><span class="rank-name">Staff Sergeant</span><span class="rank-pts">120 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">SFC</span><span class="rank-name">Sergeant First Class</span><span class="rank-pts">180 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">MSG</span><span class="rank-name">Master Sergeant</span><span class="rank-pts">250 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">1SG</span><span class="rank-name">First Sergeant</span><span class="rank-pts">350 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">SGM</span><span class="rank-name">Sergeant Major</span><span class="rank-pts">500 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CSM</span><span class="rank-name">Command Sergeant Major</span><span class="rank-pts">650 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">SMA</span><span class="rank-name">Sergeant Major of the Army</span><span class="rank-pts">800 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">WO1</span><span class="rank-name">Warrant Officer 1</span><span class="rank-pts">1,000 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CW2</span><span class="rank-name">Chief Warrant Officer 2</span><span class="rank-pts">1,250 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CW3</span><span class="rank-name">Chief Warrant Officer 3</span><span class="rank-pts">1,550 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CW4</span><span class="rank-name">Chief Warrant Officer 4</span><span class="rank-pts">1,900 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CW5</span><span class="rank-name">Chief Warrant Officer 5</span><span class="rank-pts">2,300 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">2LT</span><span class="rank-name">Second Lieutenant</span><span class="rank-pts">2,800 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">1LT</span><span class="rank-name">First Lieutenant</span><span class="rank-pts">3,300 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">CPT</span><span class="rank-name">Captain</span><span class="rank-pts">3,900 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">MAJ</span><span class="rank-name">Major</span><span class="rank-pts">4,600 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">LTC</span><span class="rank-name">Lieutenant Colonel</span><span class="rank-pts">5,400 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">COL</span><span class="rank-name">Colonel</span><span class="rank-pts">6,300 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">BG</span><span class="rank-name">Brigadier General</span><span class="rank-pts">7,300 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">MG</span><span class="rank-name">Major General</span><span class="rank-pts">8,400 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">LTG</span><span class="rank-name">Lieutenant General</span><span class="rank-pts">9,600 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">GEN</span><span class="rank-name">General</span><span class="rank-pts">11,000 PTS</span></div>
+            <div class="rank-chip"><span class="rank-code">GA</span><span class="rank-name">General of the Army</span><span class="rank-pts">12,500 PTS</span></div>
+          </div>
+
+          <div class="rank-title">Specializations // persistent role progression</div>
+          <div class="specializations">
+            <span class="spec">RECON</span><span class="spec">DEMOLITIONS</span><span class="spec">SNIPER</span><span class="spec">ANTI-ARMOR</span><span class="spec">HEAVY GUNNER</span><span class="spec">MEDIC</span>
+          </div>
+
+          <p class="progression-note">SENTINEL develops the long-form progression tradition familiar from classic Arma missions—including the Arma 2 Domination era—into a persistent rank, specialization XP and equipment-authorization system built for an ongoing tactical campaign.</p>
+          <div class="progression-actions"><a class="btn primary" href="PROGRESSION.md">Full Rank & Progression System</a></div>
         </div>
       </div>
     </section>
