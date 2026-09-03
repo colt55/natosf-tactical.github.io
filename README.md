@@ -54,6 +54,14 @@ SENTINEL includes persistent player progression, ranks and specializations; pers
 
 RECON · DEMOLITIONS · SNIPER · ANTI-ARMOR · HEAVY GUNNER · MEDIC
 
+## Persistent Rank, XP & Ranked Arsenal
+
+SENTINEL maintains a server-authoritative career record for each operator by **Steam UID**. The record includes combat kills, deaths, career points, military rank, selected specialization, persistent XP for every specialization, and the resulting Ranked Arsenal equipment tier.
+
+Progression is part of the campaign database and is designed to continue across mission restarts and deployments. The current terrain-migration model carries the portable UID progression record forward while leaving terrain-specific AO, vehicle and objective state behind. Moving to a different server host requires the SENTINEL server profile/profileNamespace database to be migrated with the campaign.
+
+**Full system documentation:** [Persistent Rank, XP, Specializations & Ranked Arsenal](PROGRESSION.md)
+
 ## NSFTU Links
 
 - **Website:** https://colt55.github.io/natosf-tactical.github.io/
