@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071109">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="SENTINEL is the persistent tactical Arma 3 campaign of the NATO Special Forces Tactical Unit (NSFTU), currently deployed on Stubbhult. Base Arma 3 plus seven Workshop mods; no official paid DLC required.">
+  <meta name="description" content="SENTINEL is the persistent tactical Arma 3 campaign of the NATO Special Forces Tactical Unit (NSFTU), currently deployed on Stubbhult with the current seven-mod client stack.">
   <meta property="og:title" content="SENTINEL | NATO Special Forces Tactical Unit">
-  <meta property="og:description" content="Persistent tactical co-op on Stubbhult. Base Arma 3 plus seven Workshop mods; zero official paid DLC required.">
+  <meta property="og:description" content="Persistent tactical co-op on Stubbhult. NSFTU campaign systems, current mod stack, server access and unit information.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://colt55.github.io/natosf-tactical.github.io/">
   <title>SENTINEL | NATO Special Forces Tactical Unit</title>
@@ -169,35 +169,6 @@
     }
     .hero-sub strong { color: var(--white); font-weight: 750; }
 
-    .dlc-callout {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin-top: 26px;
-      padding: 17px 19px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 17px;
-      align-items: center;
-      border: 1px solid var(--green);
-      border-radius: 14px;
-      background: linear-gradient(120deg, rgba(29, 54, 24, .88), rgba(6, 17, 8, .94));
-      box-shadow: 0 18px 44px rgba(0,0,0,.24), inset 0 0 30px rgba(168,216,78,.055);
-    }
-    .dlc-badge {
-      white-space: nowrap;
-      padding: 8px 11px;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      color: #091008;
-      background: var(--green-bright);
-      font: 900 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .dlc-copy strong { display: block; color: var(--white); font-size: 1rem; }
-    .dlc-copy span { display: block; margin-top: 3px; color: #b9cbb5; font-size: .88rem; }
-
     .hero-actions { display: flex; gap: 11px; flex-wrap: wrap; margin-top: 30px; }
     .btn {
       border: 1px solid var(--line-strong);
@@ -226,7 +197,7 @@
     .status-grid {
       margin-top: 50px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
@@ -314,9 +285,6 @@
     .copy-note { min-height: 20px; margin-top: 9px; color: var(--green); font: 700 .68rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
 
     @media (max-width: 1000px) {
-      .status-grid { grid-template-columns: repeat(2, 1fr); }
-      .status-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
-      .status-item:nth-child(4) { border-top: 1px solid var(--line); }
       .cards { grid-template-columns: repeat(2, 1fr); }
       .mods { grid-template-columns: repeat(4, 1fr); }
       .fleet { grid-template-columns: repeat(3, 1fr); }
@@ -327,8 +295,6 @@
       .nav-links { display: none; }
       .hero { padding-top: 70px; }
       .hero::after { display: none; }
-      .dlc-callout { grid-template-columns: 1fr; gap: 10px; }
-      .dlc-badge { width: fit-content; }
       .deployment { grid-template-columns: 1fr; }
       .join { grid-template-columns: 1fr; }
       .join-actions { flex-direction: row; flex-wrap: wrap; min-width: 0; }
@@ -384,10 +350,6 @@
         <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Persistent tactical campaign // Stubbhult</div>
         <h1>SENTINEL</h1>
         <p class="hero-sub">The persistent Arma 3 campaign of the <strong>NATO Special Forces Tactical Unit</strong>. Serious cooperative tactical gameplay, persistent progression, dynamic operations, aviation, logistics, recovery and combined-arms missions on Stubbhult.</p>
-        <div class="dlc-callout" role="note" aria-label="DLC requirement">
-          <div class="dlc-badge">Zero Paid DLC</div>
-          <div class="dlc-copy"><strong>No official paid Arma 3 DLC is required to play SENTINEL.</strong><span>Join with the base game plus seven Workshop mods: CBA_A3, ACE3, ACM, ACRE2, RHSAFRF, BWMod and Stubbhult.</span></div>
-        </div>
         <div class="hero-actions">
           <a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Join NSFTU Discord</a>
           <a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop Collection</a>
@@ -397,7 +359,6 @@
           <div class="status-item"><div class="kicker">Current build</div><div class="value green">V2.04.03</div></div>
           <div class="status-item"><div class="kicker">Terrain</div><div class="value">Stubbhult</div></div>
           <div class="status-item"><div class="kicker">Required mods</div><div class="value">7</div></div>
-          <div class="status-item"><div class="kicker">Official paid DLC</div><div class="value green">ZERO REQUIRED</div></div>
         </div>
       </section>
     </div>
@@ -437,7 +398,6 @@
               <div class="row"><div class="row-key">Build</div><div class="row-val"><strong>V2.04.03</strong></div></div>
               <div class="row"><div class="row-key">Map</div><div class="row-val"><strong>Stubbhult</strong></div></div>
               <div class="row"><div class="row-key">Environment</div><div class="row-val">ACE / ACM / ACRE2 persistent tactical co-op</div></div>
-              <div class="row"><div class="row-key">Paid DLC</div><div class="row-val"><strong>None required</strong> — base Arma 3 plus the seven Workshop mods below</div></div>
               <div class="row"><div class="row-key">Naval threat</div><div class="row-val">AO-local hostile coastal patrols enabled</div></div>
             </div>
           </div>
@@ -447,7 +407,7 @@
 
     <section id="mods">
       <div class="wrap">
-        <div class="section-head"><div><div class="section-label">SENTINEL // Client configuration</div><h2>Seven Workshop mods. Zero paid DLC.</h2><p class="section-copy">SENTINEL requires the base Arma 3 game and these seven Workshop mods for the current Stubbhult deployment. No official paid Arma 3 DLC packs are required. The Workshop collection is the preferred installation path and this list is the authoritative requirement.</p></div><a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Open Collection</a></div>
+        <div class="section-head"><div><div class="section-label">SENTINEL // Client configuration</div><h2>Current authoritative mod stack.</h2><p class="section-copy">These seven mods define the current Stubbhult deployment. The Workshop collection is the preferred installation path and this list is the authoritative requirement.</p></div><a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Open Collection</a></div>
         <div class="mods" aria-label="Required mods">
           <div class="mod"><strong>CBA_A3</strong><span>Core framework</span></div>
           <div class="mod"><strong>ACE3</strong><span>Interaction / realism</span></div>
@@ -468,11 +428,11 @@
           <article class="asset"><div class="asset-tag">Command // Medical</div><h3>OVERLORD 1</h3><p>BWMod Dingo command vehicle with ACE medical-vehicle capability.</p></article>
           <article class="asset"><div class="asset-tag">Logistics // Persistent</div><h3>MULTI 1</h3><p>BWMod Multi logistics platform supporting campaign sustainment.</p></article>
           <article class="asset"><div class="asset-tag">Air // Heavy Lift</div><h3>LIFTER 1</h3><p>BWMod NH90 TTH heavy tactical airlifter for personnel, vehicles and recovery loads.</p></article>
-          <article class="asset"><div class="asset-tag">Air // Light Utility</div><h3>LIFTER 2</h3><p>Base-game Hummingbird providing light rotary-wing mobility without a paid DLC requirement.</p></article>
+          <article class="asset"><div class="asset-tag">Air // Light Utility</div><h3>LIFTER 2</h3><p>Arma 3 Hummingbird providing light rotary-wing mobility.</p></article>
         </div>
         <div style="margin-top:34px"><div class="section-label" style="margin-bottom:14px">Player specializations</div><div class="specializations"><span class="spec">RECON</span><span class="spec">DEMOLITIONS</span><span class="spec">SNIPER</span><span class="spec">ANTI-ARMOR</span><span class="spec">HEAVY GUNNER</span><span class="spec">MEDIC</span></div></div>
         <div class="join" id="join">
-          <div><div class="section-label">NATO Special Forces Tactical Unit</div><h2>Join the unit.</h2><p>New and experienced Arma 3 players are welcome. NSFTU focuses on disciplined cooperative tactical gameplay, teamwork and persistent operations without unnecessary bureaucracy. You only need the base game and the seven required Workshop mods — no official paid DLC.</p><div class="copy-note" id="copy-note" aria-live="polite"></div></div>
+          <div><div class="section-label">NATO Special Forces Tactical Unit</div><h2>Join the unit.</h2><p>New and experienced Arma 3 players are welcome. NSFTU focuses on disciplined cooperative tactical gameplay, teamwork and persistent operations without unnecessary bureaucracy.</p><div class="copy-note" id="copy-note" aria-live="polite"></div></div>
           <div class="join-actions"><a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><button class="btn" type="button" id="copy-server">Copy Server Address</button><a class="btn" href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a class="btn" href="https://units.arma3.com/unit/nsft" target="_blank" rel="noopener">Arma 3 Unit</a></div>
         </div>
       </div>
@@ -481,7 +441,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <div><div class="footer-name">NATO SPECIAL FORCES TACTICAL UNIT</div><div class="footer-copy">NSFTU // SENTINEL // Stubbhult // Base Game + 7 Workshop Mods // Zero Paid DLC // <span id="year"></span></div></div>
+      <div><div class="footer-name">NATO SPECIAL FORCES TACTICAL UNIT</div><div class="footer-copy">NSFTU // SENTINEL // Stubbhult // 7 Workshop Mods // <span id="year"></span></div></div>
       <div class="footer-links"><a href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop</a><a href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a href="mailto:natosf.command@protonmail.com">Contact</a></div>
     </div>
   </footer>
