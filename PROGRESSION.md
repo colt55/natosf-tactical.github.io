@@ -2,15 +2,15 @@
 
 Verified against **SENTINEL V2.04.40 Stubbhult**.
 
-SENTINEL is built as a continuing campaign rather than a collection of disposable missions. A player's combat record, rank, selected specialization, specialization XP and Ranked Arsenal progression are server-authoritative persistent records tied to that player's **Steam UID**.
+SENTINEL is built as a continuing campaign rather than a collection of disposable missions. A player's combat record, rank, selected specialization, specialization XP and Ranked Arsenal progression are persistent records tied to that player's **Steam UID**.
 
 The important design rule is simple:
 
-> **The map, faction, player slot and character object can change. The player's UID progression record is the identity that continues.**
+> **The map, faction, player slot and character can change. The operator career continues.**
 
 ## 1. What SENTINEL saves for every player
 
-The campaign persistence payload stores three progression layers by Steam UID:
+SENTINEL preserves three progression layers by Steam UID:
 
 - **Player Rank Record** — UID, player name, hostile kills, deaths, career points, current rank and persistent bonus/reward points.
 - **Selected Specialization** — the player's currently selected operational role.
@@ -25,7 +25,7 @@ The six current specializations are:
 - HEAVY GUNNER
 - MEDIC
 
-A player can change specialization only while physically at CENTCOM/base or beside a deployed Command Vehicle. The tablet can be viewed elsewhere, but role changes are server-authoritative and location-gated.
+A player can change specialization only while physically at CENTCOM/base or beside a deployed Command Vehicle. The tablet can be viewed elsewhere, but role changes remain location-gated.
 
 ## 2. Global career points and rank
 
@@ -49,7 +49,7 @@ The current calculation is:
 | Side task completion | +10 PTS |
 | Player death | -10 PTS |
 
-Vehicle awards are limited to eligible SENTINEL mission vehicles/targets and use server-side kill attribution, including bounded ACE cook-off attribution so a valid player hit is not lost when ammunition cook-off finishes the vehicle later.
+Vehicle awards are limited to eligible SENTINEL mission vehicles/targets and use SENTINEL kill attribution, including bounded ACE cook-off attribution so a valid player hit is not lost when ammunition cook-off finishes the vehicle later.
 
 AO-clear and side-task completion rewards are shared campaign rewards. Connected human players inside the protected **1,000 m BASE reward-exclusion zone** do not receive those shared completion points. This prevents players sitting at base from accumulating objective progression.
 
@@ -87,7 +87,7 @@ AO-clear and side-task completion rewards are shared campaign rewards. Connected
 | 11,000 | GEN | General |
 | 12,500 | GA | General of the Army |
 
-Promotion and demotion are calculated server-side from the saved UID record. The CENTCOM Tablet rank page displays the current rank, KIA, deaths, PTS, next rank requirement, selected specialization, specialization XP and active specialization equipment tier.
+Promotion and demotion are calculated automatically from the saved UID record. The CENTCOM Tablet rank page displays the current rank, KIA, deaths, PTS, next rank requirement, selected specialization, specialization XP and active specialization equipment tier.
 
 ## 4. Specialization XP
 
@@ -119,7 +119,7 @@ The mastery cap is normally 110% of the highest equipment-unlock threshold. MEDI
 
 The production Arsenal uses **specialization-based authorization**.
 
-The server combines:
+SENTINEL combines:
 
 1. the physical SENTINEL Arsenal Master/whitelist;
 2. the player's selected specialization;
@@ -139,48 +139,49 @@ The old eight-tier rank Arsenal resolver remains in the mission as a fallback, b
 
 ## 6. How progression is saved
 
-Progression is server-authoritative and written through SENTINEL's campaign persistence system.
+Progression is part of SENTINEL's persistent campaign record and is saved automatically.
 
-The campaign payload includes:
+Rank/progression changes queue a bounded autosave. The current rank autosave delay is **60 seconds**, and normal campaign saves also preserve the same operator progression records.
 
-- `playerRanks`
-- `playerRoles`
-- `playerSpecializations`
+Because the career record is tied to **Steam UID**, changing player slot, respawning, changing faction/template, or rebuilding the playable character does not create a new progression identity.
 
-SENTINEL writes the payload to Arma's server-side `profileNamespace` under both:
+The saved operator record includes:
 
-- a terrain-specific SENTINEL campaign key; and
-- a legacy/portable SENTINEL campaign alias.
-
-Rank/progression transactions queue a bounded autosave. The current rank autosave delay is **60 seconds**. Normal campaign saves also include the same progression records.
-
-Because records are keyed by **Steam UID**, changing player slot, respawning, changing faction/template, or rebuilding the playable character does not create a new rank identity.
+- military rank;
+- kills and deaths;
+- career points;
+- selected specialization;
+- XP for every specialization;
+- the specialization tier used by the Ranked Arsenal.
 
 ## 7. Terrain changes and deployments
 
-Player progression is treated differently from physical campaign state.
+Player progression is treated separately from terrain-specific battlefield state.
 
-When SENTINEL moved to Stubbhult, the migration path was deliberately designed to import the portable UID progression slice—rank records, selected roles and specialization XP—without importing old terrain positions, AO geometry, vehicles or objectives from the previous terrain.
+When SENTINEL begins a deployment on another terrain, the operator's progression record carries forward while terrain-specific elements—such as AO geometry, battlefield positions, vehicles and objectives—can be rebuilt for the new operational environment.
 
 That is the intended deployment model:
 
-> **Carry the operator record forward; rebuild terrain-specific battlefield state for the new deployment.**
+> **Carry the operator career forward; rebuild the battlefield for the new deployment.**
 
-Future terrain deployments should preserve the same portable progression slice when a new world-specific campaign key is created.
+A terrain change is therefore a new deployment, not a new player career.
 
-## 8. Moving SENTINEL to another server
+## 8. Continuity across SENTINEL deployments
 
-The Steam UID makes the record player-portable, but the saved database itself lives in the **Arma server profile/profileNamespace**.
+SENTINEL is designed so that operator progression remains continuous through normal campaign evolution.
 
-Therefore:
+The following do **not** reset the operator career:
 
-- restarting the same server/mission preserves progression;
-- updating the mission build preserves progression;
-- changing playable slots or faction does not affect the UID record;
-- terrain migration can preserve progression through the portable progression migration path;
-- moving to entirely new server hardware/profile requires the SENTINEL server profile/profileNamespace data to be migrated to the new server.
+- mission restarts;
+- mission updates and new builds;
+- changing terrain/map;
+- changing faction or force template;
+- changing playable slot or character;
+- beginning a new SENTINEL operational deployment.
 
-A fresh server profile with no copied persistence database cannot know the old ranks automatically. The authoritative campaign database must move with the server.
+The player keeps the same rank history, career points, combat record, selected specialization, specialization XP and Ranked Arsenal progression.
+
+The battlefield can change completely. The operator does not start over.
 
 ## 9. What a player's record means
 
