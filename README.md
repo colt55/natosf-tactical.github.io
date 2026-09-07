@@ -1,16 +1,18 @@
 # NSFTU — SENTINEL
 
-Official public information hub for **SENTINEL**, the persistent tactical co-op / MilSim campaign of the **NATO Special Forces Tactical Unit (NSFTU)** for Arma 3.
+Official public information hub for **SENTINEL**, the persistent multi-terrain tactical co-op / MilSim campaign of the **NATO Special Forces Tactical Unit (NSFTU)** for Arma 3.
 
-## Current Deployment
+## Campaign Standard
 
 - **Mission:** SENTINEL
-- **Build:** V2.04.03
-- **Terrain:** Stubbhult
+- **Build:** V2.04.65
+- **Deployment Model:** Multi-terrain
+- **BLUEFOR Standard:** BWMod / BWA3
+- **OPFOR Standard:** RHS Armed Forces of the Russian Federation
+- **Objective Compatibility:** Arma 3 + official DLC terrain objects or CUP Terrain Core objects
 - **Gameplay:** Persistent tactical co-op / MilSim
 
-**Stubbhult Workshop:**  
-https://steamcommunity.com/sharedfiles/filedetails/?id=3353189981
+SENTINEL uses one common campaign framework across deployments. Terrain, base placement, Areas of Operation and battlefield state can change without rebuilding the core campaign or resetting operator progression.
 
 ## Connect
 
@@ -20,45 +22,56 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3353189981
 - **TeamSpeak / ACRE2:** `ts107.nitrado.net:10450`
 - **TeamSpeak Password:** `FALCON7`
 
-## Required Mods
+## Core Required Mods
 
-The current authoritative SENTINEL client stack is:
+The permanent SENTINEL core client stack is:
 
 - CBA_A3
 - ACE3
 - Advanced Combat Medicine (ACM)
 - ACRE2
 - RHS Armed Forces of the Russian Federation (RHSAFRF)
-- BWMod
-- Stubbhult
+- BWMod / BWA3
+
+The terrain package varies by deployment and is supplied through the active Workshop collection.
 
 **Steam Workshop Collection:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928
 
+## Deployment Architecture
+
+SENTINEL separates persistence into two layers:
+
+- **Global Career:** military rank, career points, selected specialization and specialization XP follow the operator across every SENTINEL deployment.
+- **Deployment Battlefield:** AO progress, QRF state, vehicles, aircraft, tickets, logistics, objectives and battlefield positions remain isolated to the current deployment.
+
+Officer campaign reset tools clear the deployment battlefield without deleting the Global Career database.
+
 ## Campaign Capabilities
 
-SENTINEL includes persistent player progression, ranks and specializations; persistent Areas of Operation; dynamic objectives; AI/QRF response; AO-local naval patrols; the CENTCOM Tablet; officer command tools; TALCS tactical aviation support; persistent Blue Force vehicles; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; and ACRE2 tactical communications.
+SENTINEL includes persistent player progression and Ranked Arsenal authorization; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; Officer command tools; TALCS tactical aviation support; persistent Blue Force assets; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
 
-### Persistent Blue Force Fleet
+### QRF Wave Director
 
-- **EAGLE 1–4** — BWMod Eagle tactical vehicles
-- **OVERLORD 1** — BWMod Dingo command / ACE medical vehicle
-- **MULTI 1** — BWMod Multi logistics vehicle
+QRF pressure scales with real player count. Hidden reinforcement opportunities dispatch one maximum-skill ground vehicle or attack helicopter at a time, gated by AO progress, randomized spacing and a live-platform performance cap. The hidden plan and surviving QRF state persist through server restart.
 
-### Tactical Air
+### Standard Blue Force Capability
 
-- **LIFTER 1** — BWMod NH90 TTH heavy tactical airlifter
-- **LIFTER 2** — Arma 3 Hummingbird light helicopter
+- **EAGLE 1–4** — BWMod tactical vehicles
+- **OVERLORD** — Command Vehicle / support platform
+- **MULTI A4 1–2** — persistent multifunction logistics vehicles with towing support
+- **LIFTER 1–2** — heavy and light tactical rotary-wing lift
+- Marine assets are available through SENTINEL Logistics when applicable
 
 ### Player Specializations
 
-RECON · DEMOLITIONS · SNIPER · ANTI-ARMOR · HEAVY GUNNER · MEDIC
+RECON · DEMOLITIONS · SNIPER · ANTI-ARMOR · HEAVY GUNNER · MEDIC · HELI PILOT
 
 ## Persistent Rank, XP & Ranked Arsenal
 
-SENTINEL maintains a persistent career record for each operator by **Steam UID**. The record includes combat kills, deaths, career points, military rank, selected specialization, persistent XP for every specialization, and the resulting Ranked Arsenal equipment tier.
+SENTINEL maintains a persistent career record for each operator by **Steam UID**. The record includes career points, military rank, selected specialization, persistent XP for every specialization and the resulting Ranked Arsenal equipment tier.
 
-That operator career carries forward across SENTINEL deployments. Mission restarts, new mission builds, terrain changes, faction changes and playable-role changes do not reset the player's progression. The battlefield can change; the operator record continues.
+That Global Career carries forward across SENTINEL deployments. A new battlefield is not a new operator career.
 
 **Full system documentation:** [Persistent Rank, XP, Specializations & Ranked Arsenal](PROGRESSION.md)
 
