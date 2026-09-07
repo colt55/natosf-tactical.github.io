@@ -5,7 +5,7 @@ Official public information hub for **SENTINEL**, the persistent multi-terrain t
 ## Campaign Standard
 
 - **Mission:** SENTINEL
-- **Build:** V2.04.65
+- **Build:** V2.04.69
 - **Deployment Model:** Multi-terrain
 - **BLUEFOR Standard:** BWMod / BWA3
 - **OPFOR Standard:** RHS Armed Forces of the Russian Federation
@@ -42,14 +42,16 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928
 
 SENTINEL separates persistence into two layers:
 
-- **Global Career:** military rank, career points, selected specialization and specialization XP follow the operator across every SENTINEL deployment.
+- **Global Career:** military rank, career points and independent specialization XP for every role follow the operator across every SENTINEL deployment.
 - **Deployment Battlefield:** AO progress, QRF state, vehicles, aircraft, tickets, logistics, objectives and battlefield positions remain isolated to the current deployment.
+
+The active **Operator Role** is assigned by the player's multiplayer lobby slot for the current session. Changing slots changes the active role without deleting XP already earned in any specialization.
 
 Officer campaign reset tools clear the deployment battlefield without deleting the Global Career database.
 
 ## Campaign Capabilities
 
-SENTINEL includes persistent player progression and Ranked Arsenal authorization; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; Officer command tools; TALCS tactical aviation support; persistent Blue Force assets; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
+SENTINEL includes persistent player progression and Ranked Arsenal authorization; lobby-assigned Operator Roles; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; Officer command tools; TALCS tactical aviation support; persistent Blue Force assets; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
 
 ### QRF Wave Director
 
@@ -63,17 +65,23 @@ QRF pressure scales with real player count. Hidden reinforcement opportunities d
 - **LIFTER 1–2** — heavy and light tactical rotary-wing lift
 - Marine assets are available through SENTINEL Logistics when applicable
 
-### Player Specializations
+### Operator Roles — Lobby Assigned
 
 RECON · DEMOLITIONS · SNIPER · ANTI-ARMOR · HEAVY GUNNER · MEDIC · HELI PILOT
 
+The multiplayer lobby slot is the sole authority for the active role. The CENTCOM Tablet **OPERATOR ROLE** page is status/progression only; it does not change specialization.
+
+Role-qualified ACE/ACM capabilities follow the slot: MEDIC slots carry the medical qualification, while DEMOLITIONS slots carry Advanced Engineer and EOD qualification. Other combat-role slots do not inherit those qualifications.
+
 ## Persistent Rank, XP & Ranked Arsenal
 
-SENTINEL maintains a persistent career record for each operator by **Steam UID**. The record includes career points, military rank, selected specialization, persistent XP for every specialization and the resulting Ranked Arsenal equipment tier.
+SENTINEL maintains a persistent career record for each operator by **Steam UID**. The record includes career points, military rank, persistent XP for every specialization and the resulting Ranked Arsenal equipment tier.
+
+Ranked Arsenal authorization is resolved from the current lobby-assigned Operator Role plus that role's persistent XP/tier. Controlled SENTINEL equipment is recursively entitlement-checked, including controlled items stored inside carried uniforms, vests and backpacks; an authorized container cannot be used to bypass another role's equipment restrictions.
 
 That Global Career carries forward across SENTINEL deployments. A new battlefield is not a new operator career.
 
-**Full system documentation:** [Persistent Rank, XP, Specializations & Ranked Arsenal](PROGRESSION.md)
+**Full system documentation:** [Persistent Rank, XP, Operator Roles & Ranked Arsenal](PROGRESSION.md)
 
 ## NSFTU Links
 
