@@ -1,5 +1,7 @@
 # SENTINEL Public Deployment Status
 
-Current public website baseline: **SENTINEL V2.04.03 Stubbhult**.
+Current public website baseline: **SENTINEL V2.04.65**.
 
-This status file is informational only. The authoritative playable mission is the inspected mission build, not this repository.
+SENTINEL is a multi-terrain deployment campaign. The public site intentionally does not bind the campaign identity to one terrain.
+
+The authoritative playable mission is the inspected versioned SENTINEL build, not this repository.
