@@ -5,437 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071109">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="SENTINEL is the persistent tactical Arma 3 campaign of the NATO Special Forces Tactical Unit (NSFTU), featuring persistent operator ranks, specialization XP, Ranked Arsenal progression and dynamic operations on Stubbhult.">
+  <meta name="description" content="SENTINEL is the persistent multi-terrain Arma 3 deployment campaign of the NATO Special Forces Tactical Unit (NSFTU), featuring a global operator career, specialization XP, Ranked Arsenal progression, dynamic operations and tactical aviation.">
   <meta property="og:title" content="SENTINEL | NATO Special Forces Tactical Unit">
-  <meta property="og:description" content="Persistent tactical co-op on Stubbhult with a continuing operator career, ranks, specialization XP, Ranked Arsenal progression, dynamic operations and tactical aviation.">
+  <meta property="og:description" content="Persistent tactical co-op across SENTINEL deployments with a continuing operator career, dynamic Areas of Operation, scalable QRF response, logistics and tactical aviation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://colt55.github.io/natosf-tactical.github.io/">
   <title>SENTINEL | NATO Special Forces Tactical Unit</title>
 
   <style>
     :root {
-      --bg: #020503;
-      --bg-soft: #061008;
-      --panel: rgba(8, 18, 10, 0.82);
-      --panel-strong: rgba(10, 23, 13, 0.96);
-      --panel-hover: rgba(15, 33, 18, 0.96);
-      --line: rgba(156, 205, 85, 0.22);
-      --line-strong: rgba(174, 229, 93, 0.48);
-      --green: #a8d84e;
-      --green-bright: #d4ff79;
-      --green-dim: #6f9531;
-      --text: #d7e2d5;
-      --text-soft: #9cac9a;
-      --text-dim: #71806f;
-      --white: #f3f8f1;
-      --shadow: 0 24px 70px rgba(0,0,0,.42);
-      --radius: 18px;
-      --radius-small: 12px;
-      --max: 1180px;
+      --bg:#020503; --bg-soft:#061008; --panel:rgba(8,18,10,.82); --panel-strong:rgba(10,23,13,.96);
+      --line:rgba(156,205,85,.22); --line-strong:rgba(174,229,93,.48); --green:#a8d84e; --green-bright:#d4ff79;
+      --green-dim:#6f9531; --text:#d7e2d5; --text-soft:#9cac9a; --text-dim:#71806f; --white:#f3f8f1;
+      --shadow:0 24px 70px rgba(0,0,0,.42); --radius:18px; --max:1180px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 14% 7%, rgba(88, 136, 44, .13), transparent 30%),
-        radial-gradient(circle at 88% 13%, rgba(65, 95, 40, .10), transparent 28%),
-        linear-gradient(180deg, #040805 0%, var(--bg) 46%, #010201 100%);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .20;
-      background-image:
-        linear-gradient(rgba(164, 213, 86, .025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(164, 213, 86, .025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, #000 0%, transparent 82%);
-      z-index: -1;
-    }
-
-    a { color: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    ::selection { background: var(--green); color: #061007; }
-    .wrap { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      border-bottom: 1px solid var(--line);
-      background: rgba(2, 7, 3, .84);
-      backdrop-filter: blur(16px);
-    }
-    .nav { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
-    .brand-mark {
-      width: 37px; height: 37px; border: 1px solid var(--line-strong); border-radius: 9px;
-      display: grid; place-items: center; color: var(--green-bright);
-      box-shadow: inset 0 0 24px rgba(168,216,78,.08), 0 0 26px rgba(168,216,78,.06);
-      font-weight: 900; letter-spacing: -.04em;
-    }
-    .brand-text { display: grid; line-height: 1.05; }
-    .brand-text strong { color: var(--white); font-size: .93rem; letter-spacing: .18em; }
-    .brand-text span { color: var(--text-dim); font: 600 .66rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; margin-top: 5px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
-    .nav-links a { padding: 9px 11px; border-radius: 9px; color: var(--text-soft); text-decoration: none; font-size: .82rem; font-weight: 700; letter-spacing: .04em; }
-    .nav-links a:hover { background: rgba(168,216,78,.07); color: var(--white); }
-
-    .hero { position: relative; padding: 96px 0 62px; }
-    .hero::after {
-      content: ""; position: absolute; width: 520px; height: 520px; right: -230px; top: 10px;
-      border: 1px solid rgba(168,216,78,.06); border-radius: 50%;
-      box-shadow: 0 0 0 70px rgba(168,216,78,.018), 0 0 0 150px rgba(168,216,78,.012); pointer-events: none;
-    }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green-bright); font: 700 .74rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .18em; text-transform: uppercase; }
-    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(168,216,78,.55); animation: pulse 2.3s infinite; }
-    @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgba(168,216,78,0); } 100% { box-shadow: 0 0 0 0 rgba(168,216,78,0); } }
-    h1 { margin: 18px 0 14px; color: var(--white); font-size: clamp(3.5rem, 10vw, 7.8rem); line-height: .87; letter-spacing: -.075em; font-weight: 900; }
-    .hero-sub { max-width: 790px; margin: 0; color: #b8c8b5; font-size: clamp(1.05rem, 2vw, 1.34rem); }
-    .hero-sub strong { color: var(--white); font-weight: 750; }
-    .hero-actions { display: flex; gap: 11px; flex-wrap: wrap; margin-top: 30px; }
-
-    .btn {
-      border: 1px solid var(--line-strong); border-radius: 11px; min-height: 44px; padding: 0 17px;
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px; color: var(--white);
-      background: rgba(11,22,12,.84); text-decoration: none; font-weight: 800; font-size: .84rem; letter-spacing: .03em;
-      cursor: pointer; transition: transform .16s ease, border-color .16s ease, background .16s ease;
-    }
-    .btn:hover { transform: translateY(-2px); border-color: var(--green); background: rgba(19,37,20,.96); }
-    .btn:focus-visible, .nav-links a:focus-visible, .brand:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 3px; }
-    .btn.primary { background: var(--green); color: #091008; border-color: var(--green); }
-    .btn.primary:hover { background: var(--green-bright); border-color: var(--green-bright); }
-    .btn.ghost { color: var(--green-bright); }
-
-    .status-grid { margin-top: 50px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: rgba(5,13,7,.72); box-shadow: var(--shadow); }
-    .status-item { padding: 20px 22px; min-width: 0; }
-    .status-item + .status-item { border-left: 1px solid var(--line); }
-    .kicker { color: var(--text-dim); font: 700 .66rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; }
-    .value { margin-top: 8px; color: var(--white); font-weight: 850; font-size: 1.02rem; }
-    .value.green { color: var(--green-bright); }
-
-    section { padding: 70px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 26px; }
-    .section-head > div { max-width: 760px; }
-    .section-label { color: var(--green); font: 800 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .17em; text-transform: uppercase; }
-    h2 { margin: 9px 0 0; color: var(--white); font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: -.045em; }
-    .section-copy { margin: 12px 0 0; color: var(--text-soft); max-width: 760px; }
-
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .card { position: relative; min-height: 210px; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(10,22,12,.86), rgba(4,11,6,.82)); box-shadow: 0 14px 45px rgba(0,0,0,.18); overflow: hidden; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
-    .card:hover { transform: translateY(-3px); border-color: var(--line-strong); background: linear-gradient(180deg, rgba(15,31,17,.94), rgba(6,14,8,.9)); }
-    .card::after { content: attr(data-code); position: absolute; right: 14px; top: 12px; color: rgba(168,216,78,.12); font: 900 2.7rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: -.08em; }
-    .card h3 { margin: 0 0 10px; color: var(--white); font-size: 1.1rem; }
-    .card p { margin: 0; color: var(--text-soft); font-size: .93rem; }
-    .card .mini { display: inline-block; margin-bottom: 16px; color: var(--green); font: 700 .66rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; }
-
-    .progression-shell { border: 1px solid var(--line-strong); border-radius: 24px; padding: clamp(22px, 5vw, 42px); background: radial-gradient(circle at 90% 0%, rgba(168,216,78,.12), transparent 34%), linear-gradient(145deg, rgba(13,29,15,.96), rgba(3,9,5,.96)); box-shadow: var(--shadow); }
-    .progression-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 28px; }
-    .progression-card { min-height: 185px; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(5,14,7,.72); }
-    .progression-card .mini { display: block; margin-bottom: 12px; color: var(--green); font: 800 .64rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; }
-    .progression-card h3 { margin: 0 0 9px; color: var(--white); font-size: 1.05rem; }
-    .progression-card p { margin: 0; color: var(--text-soft); font-size: .9rem; }
-    .progression-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-    .progression-note { margin: 22px 0 0; padding-left: 16px; border-left: 2px solid var(--green); color: var(--text-soft); font-size: .9rem; }
-    .rank-title { margin: 38px 0 14px; color: var(--white); font-size: 1.05rem; font-weight: 850; }
-    .rank-ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-    .rank-chip { min-height: 76px; padding: 12px 13px; border: 1px solid rgba(168,216,78,.16); border-radius: 11px; background: rgba(4,11,6,.72); display: grid; align-content: center; gap: 3px; }
-    .rank-chip .rank-code { color: var(--green-bright); font: 900 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
-    .rank-chip .rank-name { color: var(--white); font-size: .78rem; font-weight: 750; line-height: 1.25; }
-    .rank-chip .rank-pts { color: var(--text-dim); font: 700 .62rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; }
-    .specializations { display: flex; gap: 9px; flex-wrap: wrap; }
-    .spec { border: 1px solid var(--line); background: rgba(6,15,8,.8); border-radius: 999px; padding: 10px 14px; color: var(--text); font: 800 .72rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
-
-    .deployment { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
-    .panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
-    .panel-head { padding: 18px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-    .panel-head strong { color: var(--white); font-size: .93rem; letter-spacing: .02em; }
-    .panel-head span { color: var(--green); font: 700 .68rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; }
-    .rows { padding: 8px 0; }
-    .row { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 13px 20px; align-items: baseline; }
-    .row + .row { border-top: 1px solid rgba(168,216,78,.08); }
-    .row-key { color: var(--text-dim); font: 700 .72rem/1.35 ui-monospace, SFMono-Regular, Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; }
-    .row-val { color: var(--text); font-size: .92rem; overflow-wrap: anywhere; }
-    .row-val strong { color: var(--white); }
-
-    .mods { display: grid; grid-template-columns: repeat(7, 1fr); gap: 9px; }
-    .mod { min-height: 120px; border: 1px solid var(--line); border-radius: var(--radius-small); background: rgba(7,16,9,.76); padding: 16px 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
-    .mod strong { color: var(--white); font-size: .86rem; line-height: 1.25; }
-    .mod span { color: var(--green-dim); font: 700 .61rem/1.25 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
-
-    .fleet { display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; }
-    .asset { padding: 20px; min-height: 170px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(155deg, rgba(15,29,17,.88), rgba(4,10,6,.88)); }
-    .asset-tag { color: var(--green); font: 800 .65rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
-    .asset h3 { margin: 18px 0 7px; color: var(--white); font-size: 1.08rem; }
-    .asset p { margin: 0; color: var(--text-soft); font-size: .83rem; }
-
-    .join { margin: 58px 0 0; border: 1px solid var(--line-strong); border-radius: 24px; background: linear-gradient(120deg, rgba(25,45,22,.78), rgba(5,14,7,.96) 56%), var(--panel-strong); padding: clamp(26px, 6vw, 50px); box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; }
-    .join h2 { margin-top: 0; }
-    .join p { margin: 10px 0 0; color: var(--text-soft); max-width: 720px; }
-    .join-actions { display: flex; flex-direction: column; gap: 9px; min-width: 190px; }
-
-    footer { margin-top: 74px; border-top: 1px solid var(--line); background: rgba(1,4,2,.78); }
-    .footer-inner { padding: 34px 0 42px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: end; }
-    .footer-name { color: var(--white); font-weight: 900; letter-spacing: .09em; }
-    .footer-copy { color: var(--text-dim); font-size: .79rem; margin-top: 7px; }
-    .footer-links { display: flex; justify-content: flex-end; gap: 14px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-soft); text-decoration: none; font-size: .79rem; font-weight: 700; }
-    .footer-links a:hover { color: var(--green-bright); }
-    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    .copy-note { min-height: 20px; margin-top: 9px; color: var(--green); font: 700 .68rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; }
-
-    @media (max-width: 1000px) {
-      .cards { grid-template-columns: repeat(2, 1fr); }
-      .progression-grid { grid-template-columns: repeat(2, 1fr); }
-      .rank-ladder { grid-template-columns: repeat(4, 1fr); }
-      .mods { grid-template-columns: repeat(4, 1fr); }
-      .fleet { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 760px) {
-      .nav { align-items: flex-start; padding: 14px 0; }
-      .nav-links { display: none; }
-      .hero { padding-top: 70px; }
-      .hero::after { display: none; }
-      .deployment { grid-template-columns: 1fr; }
-      .rank-ladder { grid-template-columns: repeat(3, 1fr); }
-      .join { grid-template-columns: 1fr; }
-      .join-actions { flex-direction: row; flex-wrap: wrap; min-width: 0; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .footer-links { justify-content: flex-start; }
-      .fleet { grid-template-columns: repeat(2, 1fr); }
-      .mods { grid-template-columns: repeat(2, 1fr); }
-      .row { grid-template-columns: 1fr; gap: 5px; }
-    }
-    @media (max-width: 520px) {
-      .wrap { width: min(calc(100% - 24px), var(--max)); }
-      .hero { padding-top: 58px; }
-      h1 { font-size: clamp(3.4rem, 22vw, 5.4rem); }
-      .status-grid { grid-template-columns: 1fr; }
-      .status-item + .status-item { border-left: 0; border-top: 1px solid var(--line); }
-      .cards, .fleet, .progression-grid { grid-template-columns: 1fr; }
-      .rank-ladder { grid-template-columns: repeat(2, 1fr); }
-      .mods { grid-template-columns: 1fr 1fr; }
-      .section-head { align-items: flex-start; flex-direction: column; }
-      .hero-actions .btn, .join-actions .btn, .progression-actions .btn { width: 100%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 14% 7%,rgba(88,136,44,.13),transparent 30%),radial-gradient(circle at 88% 13%,rgba(65,95,40,.10),transparent 28%),linear-gradient(180deg,#040805 0%,var(--bg) 46%,#010201 100%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.65;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.20;background-image:linear-gradient(rgba(164,213,86,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(164,213,86,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000 0%,transparent 82%);z-index:-1}
+    a{color:inherit}.wrap{width:min(calc(100% - 36px),var(--max));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:40;border-bottom:1px solid var(--line);background:rgba(2,7,3,.84);backdrop-filter:blur(16px)}
+    .nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand-mark{width:37px;height:37px;border:1px solid var(--line-strong);border-radius:9px;display:grid;place-items:center;color:var(--green-bright);font-weight:900}.brand-text{display:grid;line-height:1.05}.brand-text strong{color:var(--white);font-size:.93rem;letter-spacing:.18em}.brand-text span{color:var(--text-dim);font:600 .66rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;margin-top:5px}.nav-links{display:flex;gap:4px;flex-wrap:wrap}.nav-links a{padding:9px 11px;border-radius:9px;color:var(--text-soft);text-decoration:none;font-size:.82rem;font-weight:700}.nav-links a:hover{background:rgba(168,216,78,.07);color:var(--white)}
+    .hero{position:relative;padding:96px 0 62px}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green-bright);font:700 .74rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.18em;text-transform:uppercase}.pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(168,216,78,.55);animation:pulse 2.3s infinite}@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(168,216,78,0)}100%{box-shadow:0 0 0 0 rgba(168,216,78,0)}}
+    h1{margin:18px 0 14px;color:var(--white);font-size:clamp(3.5rem,10vw,7.8rem);line-height:.87;letter-spacing:-.075em;font-weight:900}.hero-sub{max-width:820px;margin:0;color:#b8c8b5;font-size:clamp(1.05rem,2vw,1.34rem)}.hero-sub strong{color:var(--white)}.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
+    .btn{border:1px solid var(--line-strong);border-radius:11px;min-height:44px;padding:0 17px;display:inline-flex;align-items:center;justify-content:center;color:var(--white);background:rgba(11,22,12,.84);text-decoration:none;font-weight:800;font-size:.84rem;cursor:pointer}.btn:hover{transform:translateY(-2px);border-color:var(--green)}.btn.primary{background:var(--green);color:#091008;border-color:var(--green)}
+    .status-grid{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:rgba(5,13,7,.72);box-shadow:var(--shadow)}.status-item{padding:20px 22px}.status-item+.status-item{border-left:1px solid var(--line)}.kicker{color:var(--text-dim);font:700 .66rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}.value{margin-top:8px;color:var(--white);font-weight:850;font-size:1.02rem}.value.green{color:var(--green-bright)}
+    section{padding:70px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:26px}.section-head>div{max-width:790px}.section-label{color:var(--green);font:800 .72rem/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.17em;text-transform:uppercase}h2{margin:9px 0 0;color:var(--white);font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.045em}.section-copy{margin:12px 0 0;color:var(--text-soft)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{position:relative;min-height:205px;padding:23px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(10,22,12,.86),rgba(4,11,6,.82));box-shadow:0 14px 45px rgba(0,0,0,.18)}.card::after{content:attr(data-code);position:absolute;right:14px;top:12px;color:rgba(168,216,78,.12);font:900 2.7rem/1 ui-monospace,SFMono-Regular,Consolas,monospace}.card h3{margin:0 0 10px;color:var(--white);font-size:1.1rem}.card p{margin:0;color:var(--text-soft);font-size:.93rem}.mini{display:inline-block;margin-bottom:16px;color:var(--green);font:700 .66rem/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}
+    .progression-shell{border:1px solid var(--line-strong);border-radius:24px;padding:clamp(22px,5vw,42px);background:radial-gradient(circle at 90% 0%,rgba(168,216,78,.12),transparent 34%),linear-gradient(145deg,rgba(13,29,15,.96),rgba(3,9,5,.96));box-shadow:var(--shadow)}.progression-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}.progression-card{min-height:170px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(5,14,7,.72)}.progression-card h3{margin:0 0 9px;color:var(--white);font-size:1.05rem}.progression-card p{margin:0;color:var(--text-soft);font-size:.9rem}.specializations{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.spec{border:1px solid var(--line);background:rgba(6,15,8,.8);border-radius:999px;padding:10px 14px;color:var(--text);font:800 .72rem/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em}
+    .deployment{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px}.panel-head strong{color:var(--white)}.panel-head span{color:var(--green);font:700 .68rem/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.13em;text-transform:uppercase}.rows{padding:8px 0}.row{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:13px 20px}.row+.row{border-top:1px solid rgba(168,216,78,.08)}.row-key{color:var(--text-dim);font:700 .72rem/1.35 ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em}.row-val{color:var(--text);font-size:.92rem}.row-val strong{color:var(--white)}
+    .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.mod{min-height:108px;border:1px solid var(--line);border-radius:12px;background:rgba(7,16,9,.76);padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between}.mod strong{color:var(--white)}.mod span{color:var(--green-dim);font:700 .61rem/1.25 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase}
+    .fleet{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.asset{padding:20px;min-height:160px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(155deg,rgba(15,29,17,.88),rgba(4,10,6,.88))}.asset-tag{color:var(--green);font:800 .65rem/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}.asset h3{margin:18px 0 7px;color:var(--white);font-size:1.08rem}.asset p{margin:0;color:var(--text-soft);font-size:.83rem}
+    .join{margin:58px 0 0;border:1px solid var(--line-strong);border-radius:24px;background:linear-gradient(120deg,rgba(25,45,22,.78),rgba(5,14,7,.96) 56%);padding:clamp(26px,6vw,50px);box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}.join p{color:var(--text-soft)}.join-actions{display:flex;flex-direction:column;gap:9px;min-width:190px}.copy-note{min-height:20px;margin-top:9px;color:var(--green);font:700 .68rem/1 ui-monospace,SFMono-Regular,Consolas,monospace}
+    footer{margin-top:74px;border-top:1px solid var(--line);background:rgba(1,4,2,.78)}.footer-inner{padding:34px 0 42px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}.footer-name{color:var(--white);font-weight:900;letter-spacing:.09em}.footer-copy{color:var(--text-dim);font-size:.79rem;margin-top:7px}.footer-links{display:flex;gap:14px;flex-wrap:wrap}.footer-links a{color:var(--text-soft);text-decoration:none;font-size:.79rem;font-weight:700}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+    @media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}.progression-grid{grid-template-columns:repeat(2,1fr)}.fleet{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.nav-links{display:none}.deployment{grid-template-columns:1fr}.join{grid-template-columns:1fr}.join-actions{flex-direction:row;flex-wrap:wrap}.mods{grid-template-columns:repeat(2,1fr)}.row{grid-template-columns:1fr;gap:5px}}
+    @media(max-width:520px){.wrap{width:min(calc(100% - 24px),var(--max))}.status-grid,.cards,.progression-grid,.fleet,.mods{grid-template-columns:1fr}.status-item+.status-item{border-left:0;border-top:1px solid var(--line)}.hero-actions .btn,.join-actions .btn{width:100%}.section-head{align-items:flex-start;flex-direction:column}}
   </style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="SENTINEL home">
-        <div class="brand-mark">S</div>
-        <div class="brand-text">
-          <strong>SENTINEL</strong>
-          <span>NATO SPECIAL FORCES TACTICAL UNIT</span>
-        </div>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#campaign">Campaign</a>
-        <a href="#progression">Progression</a>
-        <a href="#deployment">Deployment</a>
-        <a href="#mods">Mods</a>
-        <a href="#fleet">Assets</a>
-        <a href="#join">Join NSFTU</a>
-      </nav>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="#top"><div class="brand-mark">S</div><div class="brand-text"><strong>SENTINEL</strong><span>NATO SPECIAL FORCES TACTICAL UNIT</span></div></a><nav class="nav-links"><a href="#campaign">Campaign</a><a href="#progression">Career</a><a href="#deployment">Deployment</a><a href="#mods">Mods</a><a href="#fleet">Assets</a><a href="#join">Join</a></nav></div></header>
+
+<main id="top">
+  <div class="wrap"><section class="hero">
+    <div class="eyebrow"><span class="pulse"></span> Persistent tactical campaign // Multi-terrain deployments</div>
+    <h1>SENTINEL</h1>
+    <p class="hero-sub">The persistent Arma 3 campaign of the <strong>NATO Special Forces Tactical Unit</strong>. One continuing operator career deployed across changing battlefields with dynamic Areas of Operation, combined-arms combat, tactical aviation, logistics and recovery.</p>
+    <div class="hero-actions"><a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Join NSFTU Discord</a><a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop Collection</a></div>
+    <div class="status-grid"><div class="status-item"><div class="kicker">Current build</div><div class="value green">V2.04.65</div></div><div class="status-item"><div class="kicker">Deployment model</div><div class="value">Multi-Terrain</div></div><div class="status-item"><div class="kicker">Core client mods</div><div class="value">6 + Deployment Terrain</div></div></div>
+  </section></div>
+
+  <section id="campaign"><div class="wrap"><div class="section-head"><div><div class="section-label">SENTINEL // Master deployment architecture</div><h2>One campaign framework. Different battlefields.</h2><p class="section-copy">SENTINEL separates a global operator career from deployment-specific battlefield state. A new deployment can change terrain, base placement, Areas of Operation and objective geometry without resetting the player career or rebuilding the core campaign systems.</p></div></div>
+    <div class="cards">
+      <article class="card" data-code="01"><span class="mini">Global persistence</span><h3>One Operator Career</h3><p>Military rank, career points, selected specialization and specialization XP continue across SENTINEL deployments.</p></article>
+      <article class="card" data-code="02"><span class="mini">Deployment persistence</span><h3>Independent Battlefields</h3><p>AO progress, QRF state, vehicles, aircraft, objectives, tickets, logistics and battlefield positions remain isolated to each deployment.</p></article>
+      <article class="card" data-code="03"><span class="mini">Enemy response</span><h3>QRF Wave Director</h3><p>Player-scaled hidden reinforcement waves dispatch one maximum-skill ground or air platform at unpredictable combat-progress intervals.</p></article>
+      <article class="card" data-code="04"><span class="mini">Objectives</span><h3>Two Terrain Object Families</h3><p>Deployments use the approved Arma 3 + official DLC objective library or the CUP Terrain Core objective library.</p></article>
+      <article class="card" data-code="05"><span class="mini">Command</span><h3>CENTCOM Tablet</h3><p>Mission information, rank progression, logistics, Blue Force tracking and Officer tools provide a common command interface on every deployment.</p></article>
+      <article class="card" data-code="06"><span class="mini">Sustainment</span><h3>Logistics & Recovery</h3><p>Persistent fleet systems, towing, recovery, tactical lift and field sustainment remain standardized across deployments.</p></article>
     </div>
-  </header>
+  </div></section>
 
-  <main id="top">
-    <div class="wrap">
-      <section class="hero">
-        <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Persistent tactical campaign // Stubbhult</div>
-        <h1>SENTINEL</h1>
-        <p class="hero-sub">The persistent Arma 3 campaign of the <strong>NATO Special Forces Tactical Unit</strong>. Serious cooperative tactical gameplay, persistent progression, dynamic operations, aviation, logistics, recovery and combined-arms missions on Stubbhult.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Join NSFTU Discord</a>
-          <a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop Collection</a>
-          <a class="btn ghost" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3353189981" target="_blank" rel="noopener">Stubbhult Terrain</a>
-        </div>
-        <div class="status-grid" aria-label="Current deployment status">
-          <div class="status-item"><div class="kicker">Current build</div><div class="value green">V2.04.03</div></div>
-          <div class="status-item"><div class="kicker">Terrain</div><div class="value">Stubbhult</div></div>
-          <div class="status-item"><div class="kicker">Required mods</div><div class="value">7</div></div>
-        </div>
-      </section>
+  <section id="progression"><div class="wrap"><div class="progression-shell"><div class="section-head"><div><div class="section-label">SENTINEL // Global career</div><h2>The battlefield changes. Your operator career does not.</h2><p class="section-copy">SENTINEL maintains a Steam UID-based operator record. Rank points and specialization XP remain global while each deployment maintains its own operational state.</p></div></div>
+    <div class="progression-grid">
+      <article class="progression-card"><span class="mini">Career rank</span><h3>29 Military Ranks</h3><p>Persistent career points drive promotion from Private through General of the Army.</p></article>
+      <article class="progression-card"><span class="mini">Role development</span><h3>Independent Specialization XP</h3><p>Each selected operational specialty develops its own persistent XP record.</p></article>
+      <article class="progression-card"><span class="mini">Equipment</span><h3>Ranked Arsenal</h3><p>Specialization and XP tier determine authorized equipment while preserving previously unlocked lower-tier gear.</p></article>
+      <article class="progression-card"><span class="mini">Continuity</span><h3>Deployment-Proof Progression</h3><p>Officer battlefield resets and terrain changes do not erase the Global Career database.</p></article>
     </div>
+    <div class="specializations"><span class="spec">RECON</span><span class="spec">DEMOLITIONS</span><span class="spec">SNIPER</span><span class="spec">ANTI-ARMOR</span><span class="spec">HEAVY GUNNER</span><span class="spec">MEDIC</span><span class="spec">HELI PILOT</span></div>
+    <div class="hero-actions"><a class="btn primary" href="PROGRESSION.md">Full Rank & Progression System</a></div>
+  </div></div></section>
 
-    <section id="campaign">
-      <div class="wrap">
-        <div class="section-head"><div><div class="section-label">SENTINEL // Campaign architecture</div><h2>Built for continuity, not one-off missions.</h2><p class="section-copy">The campaign carries meaningful state between sessions. Player development, operational activity, Blue Force assets and recovery systems are designed around long-term cooperative play.</p></div></div>
-        <div class="cards">
-          <article class="card" data-code="01"><span class="mini">Persistence</span><h3>Persistent Campaign</h3><p>Player progression, ranks, specialization XP, Blue Force vehicles, cargo and operational state persist across server restarts.</p></article>
-          <article class="card" data-code="02"><span class="mini">Operations</span><h3>Dynamic Areas of Operation</h3><p>AO generation, objective selection, terrain-aware sites and hostile response systems keep operations variable and locally relevant.</p></article>
-          <article class="card" data-code="03"><span class="mini">Enemy response</span><h3>AI & QRF</h3><p>Ground reaction forces, mechanized defenses and hostile tactical behavior create escalation beyond the immediate objective area.</p></article>
-          <article class="card" data-code="04"><span class="mini">Command</span><h3>CENTCOM Tablet & Officer Tools</h3><p>Mission information, Blue Force tracking, command functions and officer-level fleet tools support coordinated operations.</p></article>
-          <article class="card" data-code="05"><span class="mini">Air operations</span><h3>TALCS & Tactical Airlift</h3><p>Tactical aviation support integrates with dedicated rotary-wing lift assets for troop movement, vehicle transport and recovery.</p></article>
-          <article class="card" data-code="06"><span class="mini">Logistics</span><h3>Towing, Recovery & Sustainment</h3><p>Vehicle towing, wreck recovery, logistics vehicles, persistent cargo and support systems make battlefield sustainment part of the mission.</p></article>
-        </div>
-      </div>
-    </section>
+  <section id="deployment"><div class="wrap"><div class="section-head"><div><div class="section-label">NSFTU // Deployment framework</div><h2>Current server and campaign standard.</h2></div></div><div class="deployment">
+    <div class="panel"><div class="panel-head"><strong>Server Access</strong><span>Online environment</span></div><div class="rows"><div class="row"><div class="row-key">Server</div><div class="row-val"><strong class="mono">85.190.160.165:10600</strong></div></div><div class="row"><div class="row-key">Browser name</div><div class="row-val"><strong>SENTINEL [ACE/ACRE]</strong></div></div><div class="row"><div class="row-key">TeamSpeak / ACRE2</div><div class="row-val"><span class="mono">ts107.nitrado.net:10450</span></div></div><div class="row"><div class="row-key">Operational clock</div><div class="row-val"><span id="utc-clock" class="mono">UTC --:--:--</span></div></div></div></div>
+    <div class="panel"><div class="panel-head"><strong>Campaign Standard</strong><span>Authoritative build</span></div><div class="rows"><div class="row"><div class="row-key">Mission</div><div class="row-val"><strong>SENTINEL</strong></div></div><div class="row"><div class="row-key">Build</div><div class="row-val"><strong>V2.04.65</strong></div></div><div class="row"><div class="row-key">BLUEFOR</div><div class="row-val"><strong>BWMod / BWA3</strong></div></div><div class="row"><div class="row-key">OPFOR</div><div class="row-val"><strong>RHS AFRF</strong></div></div><div class="row"><div class="row-key">Objective compatibility</div><div class="row-val">Arma 3 + Official DLC / CUP Terrain Core</div></div></div></div>
+  </div></div></section>
 
-    <section id="progression">
-      <div class="wrap">
-        <div class="progression-shell">
-          <div class="section-head">
-            <div>
-              <div class="section-label">SENTINEL // Signature progression system</div>
-              <h2>The battlefield changes. Your operator career does not.</h2>
-              <p class="section-copy">SENTINEL maintains a persistent military career for every operator. Rank, career PTS, combat record, selected specialization, specialization XP and Ranked Arsenal progression continue across mission updates and new operational deployments—including changes of terrain, faction, playable slot or character.</p>
-            </div>
-          </div>
+  <section id="mods"><div class="wrap"><div class="section-head"><div><div class="section-label">SENTINEL // Core client configuration</div><h2>Standard campaign mod stack.</h2><p class="section-copy">These six mods form the permanent SENTINEL core. The terrain package is deployment-specific and is supplied through the active Workshop collection.</p></div><a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Open Collection</a></div><div class="mods">
+    <div class="mod"><strong>CBA_A3</strong><span>Core framework</span></div><div class="mod"><strong>ACE3</strong><span>Interaction / realism</span></div><div class="mod"><strong>ACM</strong><span>Advanced medicine</span></div><div class="mod"><strong>ACRE2</strong><span>Tactical radio</span></div><div class="mod"><strong>RHSAFRF</strong><span>Standard OPFOR</span></div><div class="mod"><strong>BWMod / BWA3</strong><span>Standard BLUEFOR</span></div>
+  </div></div></section>
 
-          <div class="progression-grid">
-            <article class="progression-card"><span class="mini">Career rank</span><h3>29 military ranks</h3><p>Earn career PTS through combat and mission success. Promotion is calculated from the persistent operator record, from Private through General of the Army.</p></article>
-            <article class="progression-card"><span class="mini">Role development</span><h3>Independent specialization XP</h3><p>RECON, DEMOLITIONS, SNIPER, ANTI-ARMOR, HEAVY GUNNER and MEDIC each maintain their own persistent XP progression.</p></article>
-            <article class="progression-card"><span class="mini">Equipment authorization</span><h3>Ranked Arsenal</h3><p>Your selected specialization and its XP tier determine access to role-specific equipment. Higher tiers are cumulative, so previously unlocked equipment remains authorized.</p></article>
-            <article class="progression-card"><span class="mini">Campaign continuity</span><h3>One operator career</h3><p>A new map, faction or deployment is a new battlefield—not a new career. The operator record carries forward as SENTINEL evolves.</p></article>
-          </div>
+  <section id="fleet"><div class="wrap"><div class="section-head"><div><div class="section-label">SENTINEL // Standard Blue Force capability</div><h2>Combined-arms deployment assets.</h2><p class="section-copy">SENTINEL standardizes the core Blue Force capability around BWMod assets. Exact base placement changes by deployment while fleet identity, logistics and persistence systems remain common.</p></div></div><div class="fleet">
+    <article class="asset"><div class="asset-tag">Ground // Persistent</div><h3>EAGLE 1–4</h3><p>BWMod tactical mobility fleet with persistent campaign handling.</p></article>
+    <article class="asset"><div class="asset-tag">Command // Support</div><h3>OVERLORD</h3><p>Command Vehicle supporting CENTCOM functions and medical/logistics operations.</p></article>
+    <article class="asset"><div class="asset-tag">Logistics // Persistent</div><h3>MULTI A4 1–2</h3><p>Persistent multifunction logistics vehicles with SENTINEL towing support.</p></article>
+    <article class="asset"><div class="asset-tag">Air // Tactical lift</div><h3>LIFTER 1–2</h3><p>Heavy and light rotary-wing tactical lift integrated with SENTINEL persistence and support systems.</p></article>
+  </div>
+  <div class="join" id="join"><div><div class="section-label">NATO Special Forces Tactical Unit</div><h2>Join the unit.</h2><p>NSFTU focuses on serious cooperative tactical gameplay, teamwork, persistent progression and continuing deployments.</p><div class="copy-note" id="copy-note"></div></div><div class="join-actions"><a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><button class="btn" type="button" id="copy-server">Copy Server Address</button><a class="btn" href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a></div></div>
+  </div></section>
+</main>
 
-          <div class="rank-title">Military rank ladder // PTS thresholds</div>
-          <div class="rank-ladder" aria-label="SENTINEL military rank ladder">
-            <div class="rank-chip"><span class="rank-code">PVT</span><span class="rank-name">Private</span><span class="rank-pts">0 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">PV2</span><span class="rank-name">Private Second Class</span><span class="rank-pts">5 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">PFC</span><span class="rank-name">Private First Class</span><span class="rank-pts">15 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">SPC</span><span class="rank-name">Specialist</span><span class="rank-pts">30 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CPL</span><span class="rank-name">Corporal</span><span class="rank-pts">50 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">SGT</span><span class="rank-name">Sergeant</span><span class="rank-pts">75 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">SSG</span><span class="rank-name">Staff Sergeant</span><span class="rank-pts">120 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">SFC</span><span class="rank-name">Sergeant First Class</span><span class="rank-pts">180 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">MSG</span><span class="rank-name">Master Sergeant</span><span class="rank-pts">250 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">1SG</span><span class="rank-name">First Sergeant</span><span class="rank-pts">350 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">SGM</span><span class="rank-name">Sergeant Major</span><span class="rank-pts">500 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CSM</span><span class="rank-name">Command Sergeant Major</span><span class="rank-pts">650 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">SMA</span><span class="rank-name">Sergeant Major of the Army</span><span class="rank-pts">800 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">WO1</span><span class="rank-name">Warrant Officer 1</span><span class="rank-pts">1,000 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CW2</span><span class="rank-name">Chief Warrant Officer 2</span><span class="rank-pts">1,250 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CW3</span><span class="rank-name">Chief Warrant Officer 3</span><span class="rank-pts">1,550 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CW4</span><span class="rank-name">Chief Warrant Officer 4</span><span class="rank-pts">1,900 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CW5</span><span class="rank-name">Chief Warrant Officer 5</span><span class="rank-pts">2,300 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">2LT</span><span class="rank-name">Second Lieutenant</span><span class="rank-pts">2,800 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">1LT</span><span class="rank-name">First Lieutenant</span><span class="rank-pts">3,300 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">CPT</span><span class="rank-name">Captain</span><span class="rank-pts">3,900 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">MAJ</span><span class="rank-name">Major</span><span class="rank-pts">4,600 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">LTC</span><span class="rank-name">Lieutenant Colonel</span><span class="rank-pts">5,400 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">COL</span><span class="rank-name">Colonel</span><span class="rank-pts">6,300 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">BG</span><span class="rank-name">Brigadier General</span><span class="rank-pts">7,300 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">MG</span><span class="rank-name">Major General</span><span class="rank-pts">8,400 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">LTG</span><span class="rank-name">Lieutenant General</span><span class="rank-pts">9,600 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">GEN</span><span class="rank-name">General</span><span class="rank-pts">11,000 PTS</span></div>
-            <div class="rank-chip"><span class="rank-code">GA</span><span class="rank-name">General of the Army</span><span class="rank-pts">12,500 PTS</span></div>
-          </div>
-
-          <div class="rank-title">Specializations // persistent role progression</div>
-          <div class="specializations">
-            <span class="spec">RECON</span><span class="spec">DEMOLITIONS</span><span class="spec">SNIPER</span><span class="spec">ANTI-ARMOR</span><span class="spec">HEAVY GUNNER</span><span class="spec">MEDIC</span>
-          </div>
-
-          <p class="progression-note">SENTINEL develops the long-form progression tradition familiar from classic Arma missions—including the Arma 2 Domination era—into a persistent rank, specialization XP and equipment-authorization system built for an ongoing tactical campaign.</p>
-          <div class="progression-actions"><a class="btn primary" href="PROGRESSION.md">Full Rank & Progression System</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="deployment">
-      <div class="wrap">
-        <div class="section-head"><div><div class="section-label">NSFTU // Live deployment</div><h2>Current server and mission information.</h2></div></div>
-        <div class="deployment">
-          <div class="panel">
-            <div class="panel-head"><strong>Server Access</strong><span>Online environment</span></div>
-            <div class="rows">
-              <div class="row"><div class="row-key">Server</div><div class="row-val"><strong class="mono">85.190.160.165:10600</strong></div></div>
-              <div class="row"><div class="row-key">Browser name</div><div class="row-val"><strong>SENTINEL [ACE/ACRE]</strong></div></div>
-              <div class="row"><div class="row-key">TeamSpeak / ACRE2</div><div class="row-val"><span class="mono">ts107.nitrado.net:10450</span></div></div>
-              <div class="row"><div class="row-key">TeamSpeak password</div><div class="row-val"><span class="mono">FALCON7</span></div></div>
-              <div class="row"><div class="row-key">Operational clock</div><div class="row-val"><span id="utc-clock" class="mono">UTC --:--:--</span></div></div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head"><strong>Mission Status</strong><span>Authoritative build</span></div>
-            <div class="rows">
-              <div class="row"><div class="row-key">Mission</div><div class="row-val"><strong>SENTINEL</strong></div></div>
-              <div class="row"><div class="row-key">Build</div><div class="row-val"><strong>V2.04.03</strong></div></div>
-              <div class="row"><div class="row-key">Map</div><div class="row-val"><strong>Stubbhult</strong></div></div>
-              <div class="row"><div class="row-key">Environment</div><div class="row-val">ACE / ACM / ACRE2 persistent tactical co-op</div></div>
-              <div class="row"><div class="row-key">Naval threat</div><div class="row-val">AO-local hostile coastal patrols enabled</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="mods">
-      <div class="wrap">
-        <div class="section-head"><div><div class="section-label">SENTINEL // Client configuration</div><h2>Current authoritative mod stack.</h2><p class="section-copy">These seven mods define the current Stubbhult deployment. The Workshop collection is the preferred installation path and this list is the authoritative requirement.</p></div><a class="btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Open Collection</a></div>
-        <div class="mods" aria-label="Required mods">
-          <div class="mod"><strong>CBA_A3</strong><span>Core framework</span></div>
-          <div class="mod"><strong>ACE3</strong><span>Interaction / realism</span></div>
-          <div class="mod"><strong>ACM</strong><span>Advanced medicine</span></div>
-          <div class="mod"><strong>ACRE2</strong><span>Tactical radio</span></div>
-          <div class="mod"><strong>RHSAFRF</strong><span>Enemy content</span></div>
-          <div class="mod"><strong>BWMod</strong><span>NSFTU assets</span></div>
-          <div class="mod"><strong>Stubbhult</strong><span>Terrain</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="fleet">
-      <div class="wrap">
-        <div class="section-head"><div><div class="section-label">SENTINEL // Persistent Blue Force assets</div><h2>Ground fleet and tactical air.</h2><p class="section-copy">Core NSFTU vehicles are persistent campaign assets. Recovery, towing, logistics and tactical lift are integrated into normal operations.</p></div></div>
-        <div class="fleet">
-          <article class="asset"><div class="asset-tag">Ground // Persistent</div><h3>EAGLE 1–4</h3><p>BWMod Eagle tactical vehicles. Four persistent NSFTU mobility platforms.</p></article>
-          <article class="asset"><div class="asset-tag">Command // Medical</div><h3>OVERLORD 1</h3><p>BWMod Dingo command vehicle with ACE medical-vehicle capability.</p></article>
-          <article class="asset"><div class="asset-tag">Logistics // Persistent</div><h3>MULTI 1</h3><p>BWMod Multi logistics platform supporting campaign sustainment.</p></article>
-          <article class="asset"><div class="asset-tag">Air // Heavy Lift</div><h3>LIFTER 1</h3><p>BWMod NH90 TTH heavy tactical airlifter for personnel, vehicles and recovery loads.</p></article>
-          <article class="asset"><div class="asset-tag">Air // Light Utility</div><h3>LIFTER 2</h3><p>Arma 3 Hummingbird providing light rotary-wing mobility.</p></article>
-        </div>
-        <div style="margin-top:34px"><div class="section-label" style="margin-bottom:14px">Player specializations</div><div class="specializations"><span class="spec">RECON</span><span class="spec">DEMOLITIONS</span><span class="spec">SNIPER</span><span class="spec">ANTI-ARMOR</span><span class="spec">HEAVY GUNNER</span><span class="spec">MEDIC</span></div></div>
-        <div class="join" id="join">
-          <div><div class="section-label">NATO Special Forces Tactical Unit</div><h2>Join the unit.</h2><p>New and experienced Arma 3 players are welcome. NSFTU focuses on disciplined cooperative tactical gameplay, teamwork and persistent operations without unnecessary bureaucracy.</p><div class="copy-note" id="copy-note" aria-live="polite"></div></div>
-          <div class="join-actions"><a class="btn primary" href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><button class="btn" type="button" id="copy-server">Copy Server Address</button><a class="btn" href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a class="btn" href="https://units.arma3.com/unit/nsft" target="_blank" rel="noopener">Arma 3 Unit</a></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <div><div class="footer-name">NATO SPECIAL FORCES TACTICAL UNIT</div><div class="footer-copy">NSFTU // SENTINEL // Stubbhult // 7 Workshop Mods // <span id="year"></span></div></div>
-      <div class="footer-links"><a href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop</a><a href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a href="mailto:natosf.command@protonmail.com">Contact</a></div>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      const clock = document.getElementById('utc-clock');
-      const year = document.getElementById('year');
-      const copyButton = document.getElementById('copy-server');
-      const copyNote = document.getElementById('copy-note');
-      const server = '85.190.160.165:10600';
-      function updateClock() { clock.textContent = 'UTC ' + new Date().toISOString().slice(11, 19); }
-      updateClock();
-      setInterval(updateClock, 1000);
-      year.textContent = new Date().getFullYear();
-      copyButton.addEventListener('click', async function () {
-        try { await navigator.clipboard.writeText(server); copyNote.textContent = 'SERVER ADDRESS COPIED // ' + server; }
-        catch (error) { copyNote.textContent = 'SERVER // ' + server; }
-      });
-    })();
-  </script>
+<footer><div class="wrap footer-inner"><div><div class="footer-name">NATO SPECIAL FORCES TACTICAL UNIT</div><div class="footer-copy">NSFTU // SENTINEL // MULTI-TERRAIN DEPLOYMENTS // <span id="year"></span></div></div><div class="footer-links"><a href="https://discord.gg/6XrZ6t52E" target="_blank" rel="noopener">Discord</a><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928" target="_blank" rel="noopener">Workshop</a><a href="https://steamcommunity.com/groups/natosf-tactical" target="_blank" rel="noopener">Steam Group</a><a href="mailto:natosf.command@protonmail.com">Contact</a></div></div></footer>
+<script>(function(){const clock=document.getElementById('utc-clock');const year=document.getElementById('year');const btn=document.getElementById('copy-server');const note=document.getElementById('copy-note');const server='85.190.160.165:10600';function tick(){clock.textContent='UTC '+new Date().toISOString().slice(11,19)}tick();setInterval(tick,1000);year.textContent=new Date().getFullYear();btn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(server);note.textContent='SERVER ADDRESS COPIED // '+server}catch(e){note.textContent='SERVER // '+server}})})();</script>
 </body>
 </html>
