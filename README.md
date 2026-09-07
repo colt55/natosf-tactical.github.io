@@ -17,7 +17,7 @@ SENTINEL uses one common campaign framework across deployments. Terrain, base pl
 ## Connect
 
 - **Server:** `85.190.160.165:10600`
-- **Server Browser:** `SENTINEL [ACE/ACRE]`
+- **Server Browser:** `Operation Sentinel Server [ACE/ACRE/ACM]`
 - **Discord:** https://discord.gg/6XrZ6t52E
 - **TeamSpeak / ACRE2:** `ts107.nitrado.net:10450`
 - **TeamSpeak Password:** `FALCON7`
