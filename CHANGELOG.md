@@ -2,7 +2,7 @@
 
 ## 2026-09-07
 
-- Updated public mission baseline to SENTINEL V2.04.65.
+- Updated public mission baseline to SENTINEL V2.04.69.
 - Reframed SENTINEL as a multi-terrain deployment campaign rather than a terrain-specific mission.
 - Removed terrain-specific wording and links from the public homepage and repository README.
 - Documented the Global Career / deployment battlefield persistence split.
@@ -10,6 +10,10 @@
 - Added Arma 3 + official DLC and CUP Terrain Core objective compatibility families.
 - Added HELI PILOT to the public specialization list.
 - Updated QRF documentation to the player-scaled hidden Wave Director model.
+- Documented V2.04.66 lobby role slots and slot-specific ACE/ACM capability assignments.
+- Documented V2.04.67 lobby-authoritative Operator Roles and the view-only CENTCOM Tablet OPERATOR ROLE page.
+- Documented V2.04.68 recursive Ranked Arsenal entitlement enforcement for controlled equipment inside carried containers.
+- Recorded the V2.04.69 TALCS RTB improvement that targets the intended home helipad through native helicopter landing logic.
 
 ## 2026-09-02
 
