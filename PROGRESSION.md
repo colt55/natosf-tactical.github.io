@@ -165,7 +165,7 @@ Remains isolated to the active deployment:
 - logistics and operational state;
 - saved battlefield/player positions.
 
-The Admin **CLEAR DATA** function deletes deployment battlefield state while preserving Global Career records. Once a clear is armed and confirmed, deployment-state saves remain blocked until server restart so the deleted battlefield cannot be recreated by a disconnect/autosave.
+Resetting deployment battlefield state preserves Global Career records.
 
 ## 8. Continuity across deployments
 
@@ -175,7 +175,7 @@ The following do **not** reset the operator career:
 - mission updates and new builds;
 - changing deployment terrain;
 - changing playable slot or character;
-- Admin deployment-data reset;
+- resetting deployment battlefield state;
 - beginning another SENTINEL deployment.
 
 The battlefield can change completely. The operator does not start over.
