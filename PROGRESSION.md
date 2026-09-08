@@ -2,15 +2,15 @@
 
 Verified against **SENTINEL V2.04.69**.
 
-SENTINEL is a continuing multi-terrain deployment campaign. A player's military rank, career points, specialization XP and Ranked Arsenal progression are stored as a **Global Career** tied to that player's Steam UID. The active **Operator Role** for a session is assigned by the multiplayer lobby slot.
+SENTINEL is a continuing multi-terrain deployment campaign. A player's military rank, career points, specialization XP and Ranked Arsenal progression are stored as a persistent **Global Career**. The active **Operator Role** for a session is assigned by the multiplayer lobby slot.
 
 > **The deployment can change. The operator career continues. The lobby slot assigns the active role.**
 
 ## 1. Global Career and Operator Role
 
-SENTINEL preserves these progression records by Steam UID:
+SENTINEL preserves these progression records for each operator:
 
-- Player rank record — UID, player name, hostile kills, deaths, career points and military rank.
+- Player rank record — player name, hostile kills, deaths, career points and military rank.
 - Specialization XP — independent persistent XP totals for every specialization.
 - Ranked Arsenal progression derived from each specialization's persistent XP.
 
@@ -84,7 +84,7 @@ Blue Force destruction also removes **10% of the player's currently active speci
 | 11,000 | GEN | General |
 | 12,500 | GA | General of the Army |
 
-Promotion and demotion are calculated automatically from the saved UID record.
+Promotion and demotion are calculated automatically from the saved career record.
 
 ## 4. Specialization XP
 
