@@ -47,11 +47,11 @@ SENTINEL separates persistence into two layers:
 
 The active **Operator Role** is assigned by the player's multiplayer lobby slot for the current session. Changing slots changes the active role without deleting XP already earned in any specialization.
 
-Officer campaign reset tools clear the deployment battlefield without deleting the Global Career database.
+Admin campaign reset tools clear the deployment battlefield without deleting the Global Career database.
 
 ## Campaign Capabilities
 
-SENTINEL includes persistent player progression and Ranked Arsenal authorization; lobby-assigned Operator Roles; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; Officer command tools; TALCS tactical aviation support; persistent Blue Force assets; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
+SENTINEL includes persistent player progression and Ranked Arsenal authorization; lobby-assigned Operator Roles; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; Admin command tools; TALCS tactical aviation support; persistent Blue Force assets; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
 
 ### QRF Wave Director
 
