@@ -75,7 +75,7 @@ Role-qualified ACE/ACM capabilities follow the slot: MEDIC slots carry the medic
 
 ## Persistent Rank, XP & Ranked Arsenal
 
-SENTINEL maintains a persistent career record for each operator by **Steam UID**. The record includes career points, military rank, persistent XP for every specialization and the resulting Ranked Arsenal equipment tier.
+SENTINEL maintains a persistent career record for each operator. The record includes career points, military rank, persistent XP for every specialization and the resulting Ranked Arsenal equipment tier.
 
 Ranked Arsenal authorization is resolved from the current lobby-assigned Operator Role plus that role's persistent XP/tier. Controlled SENTINEL equipment is recursively entitlement-checked, including controlled items stored inside carried uniforms, vests and backpacks; an authorized container cannot be used to bypass another role's equipment restrictions.
 
