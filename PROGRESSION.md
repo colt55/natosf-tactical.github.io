@@ -1,18 +1,18 @@
-# SENTINEL — Persistent Rank, XP, Operator Roles & Ranked Arsenal
+# SENTINEL — Rank, XP, Operator Roles & Ranked Arsenal
 
-Verified against **SENTINEL V2.04.69**.
+Verified against **SENTINEL V2.04.79**.
 
-SENTINEL is a continuing multi-terrain deployment campaign. A player's military rank, career points, specialization XP and Ranked Arsenal progression are stored as a persistent **Global Career**. The active **Operator Role** for a session is assigned by the multiplayer lobby slot.
+Your SENTINEL career moves with the campaign. Military rank, career points, specialization XP and Ranked Arsenal progress continue with you from one deployment to the next.
 
-> **The deployment can change. The operator career continues. The lobby slot assigns the active role.**
+> **The deployment can change. Your career continues. Your lobby slot assigns your active Operator Role.**
 
-## 1. Global Career and Operator Role
+## 1. Career and Operator Role
 
-SENTINEL preserves these progression records for each operator:
+Your SENTINEL career includes:
 
-- Player rank record — player name, hostile kills, deaths, career points and military rank.
-- Specialization XP — independent persistent XP totals for every specialization.
-- Ranked Arsenal progression derived from each specialization's persistent XP.
+- military rank and career points;
+- independent specialization XP for every Operator Role;
+- Ranked Arsenal progression for each specialization.
 
 The current Operator Roles are:
 
@@ -24,15 +24,13 @@ The current Operator Roles are:
 - MEDIC
 - HELI PILOT
 
-The **multiplayer lobby slot is the sole authority for the active Operator Role**. A player changes specialization by returning to the multiplayer lobby and selecting a different role slot. The CENTCOM Tablet **OPERATOR ROLE** page is view/status only and cannot change the role.
+The **multiplayer lobby slot is the sole authority for the active Operator Role**. To change specialization, return to the multiplayer lobby and select a different role slot. The CENTCOM Tablet **OPERATOR ROLE** page is view/status only and does not change your role.
 
-Changing lobby slots does not erase specialization XP already earned in another role.
+Changing lobby slots does not erase progress already earned in another specialization.
 
 ## 2. Career points and rank
 
-Career points (`PTS`) determine the player's military rank.
-
-The standard calculation remains based on hostile kills, persistent campaign rewards and penalties, with a floor of zero.
+Career points (`PTS`) determine military rank.
 
 ### Major point sources
 
@@ -48,7 +46,7 @@ The standard calculation remains based on hostile kills, persistent campaign rew
 | Player death | -10 PTS |
 | Player-caused Blue Force vehicle/equipment destruction | up to -25 PTS |
 
-Blue Force destruction also removes **10% of the player's currently active specialization XP**. SENTINEL uses bounded attribution so ACE cook-off/secondary-destruction events do not create duplicate punishment transactions.
+Blue Force destruction can also remove **10% of the currently active specialization XP**.
 
 ## 3. The 29-rank ladder
 
@@ -84,103 +82,86 @@ Blue Force destruction also removes **10% of the player's currently active speci
 | 11,000 | GEN | General |
 | 12,500 | GA | General of the Army |
 
-Promotion and demotion are calculated automatically from the saved career record.
+Promotion and demotion are calculated automatically from your current career points.
 
 ## 4. Specialization XP
 
-Global rank and specialization progression are separate records. Positive career gains also develop the specialization represented by the player's current lobby-assigned Operator Role.
+Global rank and specialization development are separate. Positive career gains also develop the specialization represented by your current lobby-assigned Operator Role.
 
-A normal player death applies the standard career penalty and removes **5% of the currently active specialization XP**, rounded upward.
+A normal player death keeps the standard career-point penalty and also removes **5% from every specialization that currently has XP**, calculated independently for each specialization and rounded upward.
 
-Specialization XP is persistent and individually tracked for all seven roles. Changing lobby slots does not erase XP already earned in another role.
+Changing Operator Roles does not erase XP already earned in another role.
 
 ### Specialization equipment tiers
 
-| Specialization | Tier thresholds | Mastery / persistent cap |
+| Specialization | Tier thresholds | Maximum XP |
 | --- | --- | ---: |
 | RECON | T1 0 / T2 50 / T3 125 / T4 250 / T5 450 | 495 XP |
 | DEMOLITIONS | T1 0 / T2 100 / T3 275 / T4 550 | 605 XP |
 | SNIPER | T1 0 / T2 200 / T3 450 / T4 800 / T5 1,200 | 1,320 XP |
 | ANTI-ARMOR | T1 0 / T2 150 / T3 375 / T4 675 | 743 XP |
 | HEAVY GUNNER | T1 0 / T2 125 / T3 350 | 385 XP |
-| MEDIC | T1 0 | 605 XP persistent-stat cap |
-| HELI PILOT | T1 0 | 605 XP persistent-stat cap |
+| MEDIC | T1 0 | 605 XP |
+| HELI PILOT | T1 0 | 605 XP |
 
-MEDIC and HELI PILOT intentionally use one equipment tier while retaining persistent specialization XP as a career statistic.
+MEDIC and HELI PILOT intentionally use one equipment tier while still developing specialization XP as part of the operator career.
 
 ## 5. Operator Role capabilities
 
-Role identity now comes from the multiplayer lobby rather than a Tablet selection.
+Role identity comes from the multiplayer lobby.
 
 - **MEDIC** slots carry the configured ACE/ACM medical qualification.
 - **DEMOLITIONS** slots carry Advanced Engineer and EOD qualification.
-- **RECON, SNIPER, ANTI-ARMOR, HEAVY GUNNER and HELI PILOT** do not inherit MEDIC or DEMOLITIONS ACE role qualifications simply by changing equipment.
+- **RECON, SNIPER, ANTI-ARMOR, HEAVY GUNNER and HELI PILOT** do not inherit MEDIC or DEMOLITIONS qualifications simply by changing equipment.
 - The CENTCOM Tablet **OPERATOR ROLE** page reports the current role and progression but does not provide a role-change control.
 
-This keeps gameplay capability, equipment authorization and the player's selected multiplayer role aligned to the same authoritative slot identity.
+This keeps gameplay capability, equipment authorization and the selected multiplayer role aligned.
 
-## 6. Ranked Arsenal and entitlement enforcement
+## 6. Ranked Arsenal
 
-The production Arsenal uses specialization-based authorization. SENTINEL combines:
+SENTINEL does not use an unrestricted Arsenal. Ranked Arsenal access is based on:
 
-1. the physical SENTINEL Arsenal Master/whitelist;
-2. the player's **lobby-assigned Operator Role**;
-3. that role's persistent specialization XP;
-4. the active specialization tier;
-5. role-specific equipment and safety restrictions.
+1. your **lobby-assigned Operator Role**;
+2. your progress in that role;
+3. the current specialization tier;
+4. role-specific equipment and safety restrictions.
 
-Equipment tiers are cumulative: reaching a higher tier retains equipment already unlocked at lower tiers.
+Equipment tiers are cumulative: reaching a higher tier keeps equipment already unlocked at lower tiers.
 
-Controlled SENTINEL equipment is also checked after inventory transfers. Entitlement enforcement examines the complete carried loadout, including controlled items stored inside uniforms, vests and backpacks. An authorized container cannot be used to carry another role's restricted weapons, magazines, explosives, attachments, medical items, tools or other controlled equipment.
+Role restrictions also apply to controlled equipment carried inside uniforms, vests and backpacks. An authorized container cannot be used to carry another role's restricted weapons, magazines, explosives, attachments, medical items, tools or other controlled equipment.
 
-This restriction applies to equipment that belongs to the controlled SENTINEL Arsenal Master. Ordinary battlefield loot outside that controlled equipment set is not automatically specialization-locked.
+Ordinary battlefield loot outside the controlled SENTINEL Arsenal is not automatically role-locked.
 
-The standardized BWA3 apparel system exposes the approved Flecktarn, Multitarn and Tropentarn variants for appropriate non-pilot roles. Terrain-aware camouflage then affects AI detection performance based on the player's actual equipment and local environment.
+The standardized BWA3 apparel system includes approved Flecktarn, Multitarn and Tropentarn variants for appropriate non-pilot roles. Terrain-aware camouflage affects AI detection performance based on actual equipment and local environment.
 
 CBRN-compatible Crye/ghillie uniforms and ACM filter access are available to non-pilot specialties. HELI PILOT remains excluded from the CBRN entitlement.
 
-## 7. Deployment persistence split
+## 7. Campaign continuity
 
-SENTINEL V2.04.69 separates persistence into two layers:
-
-### Global Career
-
-Carries across every deployment:
+Your career continues across SENTINEL deployments:
 
 - military rank;
 - career points;
 - specialization XP for every role;
-- resulting Ranked Arsenal progression.
+- Ranked Arsenal progression.
 
-The active Operator Role is supplied by the current multiplayer lobby slot rather than selected from the persistent battlefield state.
+Each deployment has its own battlefield conditions, including AO progress, QRF activity, vehicles, aircraft, tickets, logistics, objectives and battlefield positions.
 
-### Deployment Battlefield
+The active Operator Role always comes from the current multiplayer lobby slot.
 
-Remains isolated to the active deployment:
+## 8. What does not restart your career
 
-- AO and objective progress;
-- QRF state;
-- Blue Force and hostile persistent vehicles/aircraft;
-- tickets;
-- logistics and operational state;
-- saved battlefield/player positions.
-
-Resetting deployment battlefield state preserves Global Career records.
-
-## 8. Continuity across deployments
-
-The following do **not** reset the operator career:
+Your operator career continues through:
 
 - mission restarts;
 - mission updates and new builds;
 - changing deployment terrain;
 - changing playable slot or character;
-- resetting deployment battlefield state;
 - beginning another SENTINEL deployment.
 
-The battlefield can change completely. The operator does not start over.
+**New battlefield. Same operator. Same career.**
 
 ---
 
 **SENTINEL** — NATO Special Forces Tactical Unit / NSFTU  
-Persistent multi-terrain tactical co-op campaign for Arma 3.
+Continuing multi-terrain tactical co-op campaign for Arma 3.
