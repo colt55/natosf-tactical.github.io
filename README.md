@@ -1,18 +1,18 @@
 # NSFTU — SENTINEL
 
-Official public information hub for **SENTINEL**, the persistent multi-terrain tactical co-op / MilSim campaign of the **NATO Special Forces Tactical Unit (NSFTU)** for Arma 3.
+Official public information hub for **SENTINEL**, the continuing multi-terrain tactical co-op / MilSim campaign of the **NATO Special Forces Tactical Unit (NSFTU)** for Arma 3.
 
 ## Campaign Standard
 
 - **Mission:** SENTINEL
-- **Build:** V2.04.69
+- **Build:** V2.04.79
 - **Deployment Model:** Multi-terrain
 - **BLUEFOR Standard:** BWMod / BWA3
 - **OPFOR Standard:** RHS Armed Forces of the Russian Federation
 - **Objective Compatibility:** Arma 3 + official DLC terrain objects or CUP Terrain Core objects
-- **Gameplay:** Persistent tactical co-op / MilSim
+- **Gameplay:** Tactical co-op / MilSim
 
-SENTINEL uses one common campaign framework across deployments. Terrain, base placement, Areas of Operation and battlefield state can change without rebuilding the core campaign or resetting operator progression.
+SENTINEL uses one common campaign framework across deployments. Terrain, base placement, Areas of Operation and battlefield conditions can change while your operator career continues with the campaign.
 
 ## Connect
 
@@ -38,30 +38,30 @@ The terrain package varies by deployment and is supplied through the active Work
 **Steam Workshop Collection:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928
 
-## Deployment Architecture
+## Campaign Continuity
 
-SENTINEL separates persistence into two layers:
+SENTINEL carries your career forward while each deployment remains its own battlefield.
 
-- **Global Career:** military rank, career points and independent specialization XP for every role follow the operator across every SENTINEL deployment.
-- **Deployment Battlefield:** AO progress, QRF state, vehicles, aircraft, tickets, logistics, objectives and battlefield positions remain isolated to the current deployment.
+- **Your Career:** military rank, career points and specialization XP follow you from one SENTINEL deployment to the next.
+- **The Battlefield:** AO progress, QRF activity, vehicles, aircraft, tickets, logistics, objectives and battlefield conditions belong to the active deployment.
 
-The active **Operator Role** is assigned by the player's multiplayer lobby slot for the current session. Changing slots changes the active role without deleting XP already earned in any specialization.
+The active **Operator Role** is assigned by your multiplayer lobby slot for the current session. Changing slots changes the active role without erasing progress already earned in another specialization.
 
-Deployment battlefield state can be reset without deleting the Global Career database.
+**New battlefield. Same operator. Same career.**
 
 ## Campaign Capabilities
 
-SENTINEL includes persistent player progression and Ranked Arsenal authorization; lobby-assigned Operator Roles; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; TALCS tactical aviation support; persistent Blue Force assets; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
+SENTINEL includes career progression and Ranked Arsenal authorization; lobby-assigned Operator Roles; dynamic Areas of Operation and terrain-object objectives; scalable AI/QRF response; the CENTCOM Tablet; TALCS tactical aviation support; Blue Force fleet systems; logistics, towing and recovery; tactical airlift; ACE/ACM medical gameplay; ACRE2 tactical communications; and terrain-aware camouflage behavior.
 
 ### QRF Wave Director
 
-QRF pressure scales with real player count. Hidden reinforcement opportunities dispatch one maximum-skill ground vehicle or attack helicopter at a time, gated by AO progress, randomized spacing and a live-platform performance cap. The hidden plan and surviving QRF state persist through server restart.
+QRF pressure scales with real player count. Hidden reinforcement opportunities dispatch one maximum-skill ground vehicle or attack helicopter at a time, gated by AO progress, randomized spacing and a live-platform performance cap. The hidden plan and surviving QRF force can continue through server restarts.
 
 ### Standard Blue Force Capability
 
 - **EAGLE 1–4** — BWMod tactical vehicles
 - **OVERLORD** — Command Vehicle / support platform
-- **MULTI A4 1–2** — persistent multifunction logistics vehicles with towing support
+- **MULTI A4 1–2** — multifunction logistics vehicles with towing support
 - **LIFTER 1–2** — heavy and light tactical rotary-wing lift
 - Marine assets are available through SENTINEL Logistics when applicable
 
@@ -73,15 +73,15 @@ The multiplayer lobby slot is the sole authority for the active role. The CENTCO
 
 Role-qualified ACE/ACM capabilities follow the slot: MEDIC slots carry the medical qualification, while DEMOLITIONS slots carry Advanced Engineer and EOD qualification. Other combat-role slots do not inherit those qualifications.
 
-## Persistent Rank, XP & Ranked Arsenal
+## Rank, XP & Ranked Arsenal
 
-SENTINEL maintains a persistent career record for each operator. The record includes career points, military rank, persistent XP for every specialization and the resulting Ranked Arsenal equipment tier.
+Your SENTINEL career moves with the campaign. Rank and specialization progress continue with you from one deployment to the next.
 
-Ranked Arsenal authorization is resolved from the current lobby-assigned Operator Role plus that role's persistent XP/tier. Controlled SENTINEL equipment is recursively entitlement-checked, including controlled items stored inside carried uniforms, vests and backpacks; an authorized container cannot be used to bypass another role's equipment restrictions.
+Ranked Arsenal authorization is based on your current lobby-assigned Operator Role and your progress in that role. Equipment tiers are cumulative, while specialist equipment remains tied to the appropriate role.
 
-That Global Career carries forward across SENTINEL deployments. A new battlefield is not a new operator career.
+Controlled SENTINEL equipment is also checked inside carried uniforms, vests and backpacks so role-restricted equipment cannot be bypassed through containers. Ordinary battlefield loot outside the controlled SENTINEL Arsenal remains available normally.
 
-**Full system documentation:** [Persistent Rank, XP, Operator Roles & Ranked Arsenal](PROGRESSION.md)
+**Full system documentation:** [Rank, XP, Operator Roles & Ranked Arsenal](PROGRESSION.md)
 
 ## NSFTU Links
 
@@ -92,4 +92,4 @@ That Global Career carries forward across SENTINEL deployments. A new battlefiel
 - **Arma 3 Unit:** https://units.arma3.com/unit/nsft
 - **Contact:** natosf.command@protonmail.com
 
-SENTINEL welcomes new and experienced Arma 3 players interested in serious cooperative tactical gameplay, persistent progression, infantry, reconnaissance, demolitions, anti-armor, heavy weapons, medical operations, aviation, logistics and recovery.
+SENTINEL welcomes new and experienced Arma 3 players interested in serious cooperative tactical gameplay, career progression, infantry, reconnaissance, demolitions, anti-armor, heavy weapons, medical operations, aviation, logistics and recovery.
