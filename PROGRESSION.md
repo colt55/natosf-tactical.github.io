@@ -17,12 +17,12 @@ Your SENTINEL career includes:
 The current Operator Roles are:
 
 - RECON
-- DEMOLITIONS
+- DEMO/CBRN/MTR
 - SNIPER
-- ANTI-ARMOR
-- HEAVY GUNNER
-- MEDIC
-- HELI PILOT
+- AT/AD
+- MG
+- MED
+- RW PILOT
 
 The **multiplayer lobby slot is the sole authority for the active Operator Role**. To change specialization, return to the multiplayer lobby and select a different role slot. The CENTCOM Tablet **OPERATOR ROLE** page is view/status only and does not change your role.
 
@@ -97,22 +97,22 @@ Changing Operator Roles does not erase XP already earned in another role.
 | Specialization | Tier thresholds | Maximum XP |
 | --- | --- | ---: |
 | RECON | T1 0 / T2 50 / T3 125 / T4 250 / T5 450 | 495 XP |
-| DEMOLITIONS | T1 0 / T2 100 / T3 275 / T4 550 | 605 XP |
+| DEMO/CBRN/MTR | T1 0 / T2 100 / T3 275 / T4 550 | 605 XP |
 | SNIPER | T1 0 / T2 200 / T3 450 / T4 800 / T5 1,200 | 1,320 XP |
-| ANTI-ARMOR | T1 0 / T2 150 / T3 375 / T4 675 | 743 XP |
-| HEAVY GUNNER | T1 0 / T2 125 / T3 350 | 385 XP |
-| MEDIC | T1 0 | 605 XP |
-| HELI PILOT | T1 0 | 605 XP |
+| AT/AD | T1 0 / T2 150 / T3 375 / T4 675 | 743 XP |
+| MG | T1 0 / T2 125 / T3 350 | 385 XP |
+| MED | T1 0 | 605 XP |
+| RW PILOT | T1 0 | 605 XP |
 
-MEDIC and HELI PILOT intentionally use one equipment tier while still developing specialization XP as part of the operator career.
+MED and RW PILOT intentionally use one equipment tier while still developing specialization XP as part of the operator career.
 
 ## 5. Operator Role capabilities
 
 Role identity comes from the multiplayer lobby.
 
-- **MEDIC** slots carry the configured ACE/ACM medical qualification.
-- **DEMOLITIONS** slots carry Advanced Engineer and EOD qualification.
-- **RECON, SNIPER, ANTI-ARMOR, HEAVY GUNNER and HELI PILOT** do not inherit MEDIC or DEMOLITIONS qualifications simply by changing equipment.
+- **MED** slots carry the configured ACE/ACM medical qualification.
+- **DEMO/CBRN/MTR** slots carry Advanced Engineer and EOD qualification.
+- **RECON, SNIPER, AT/AD, MG and RW PILOT** do not inherit MED or DEMO/CBRN/MTR qualifications simply by changing equipment.
 - The CENTCOM Tablet **OPERATOR ROLE** page reports the current role and progression but does not provide a role-change control.
 
 This keeps gameplay capability, equipment authorization and the selected multiplayer role aligned.
@@ -134,7 +134,7 @@ Ordinary battlefield loot outside the controlled SENTINEL Arsenal is not automat
 
 The standardized BWA3 apparel system includes approved Flecktarn, Multitarn and Tropentarn variants for appropriate non-pilot roles. Terrain-aware camouflage affects AI detection performance based on actual equipment and local environment.
 
-CBRN-compatible Crye/ghillie uniforms and ACM filter access are available to non-pilot specialties. HELI PILOT remains excluded from the CBRN entitlement.
+CBRN-compatible Crye/ghillie uniforms and ACM filter access are available to non-pilot specialties. RW PILOT remains excluded from the CBRN entitlement.
 
 ## 7. Campaign continuity
 
