@@ -1,5 +1,9 @@
 # Website Changelog
 
+## 2026-09-12
+
+- Aligned public Operator Role names with the current SENTINEL lobby-slot labels: RECON, DEMO/CBRN/MTR, SNIPER, AT/AD, MG, MED and RW PILOT.
+
 ## 2026-09-09
 
 - Updated the public SENTINEL baseline to V2.04.79.
