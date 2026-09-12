@@ -67,11 +67,11 @@ QRF pressure scales with real player count. Hidden reinforcement opportunities d
 
 ### Operator Roles — Lobby Assigned
 
-RECON · DEMOLITIONS · SNIPER · ANTI-ARMOR · HEAVY GUNNER · MEDIC · HELI PILOT
+RECON · DEMO/CBRN/MTR · SNIPER · AT/AD · MG · MED · RW PILOT
 
 The multiplayer lobby slot is the sole authority for the active role. The CENTCOM Tablet **OPERATOR ROLE** page is status/progression only; it does not change specialization.
 
-Role-qualified ACE/ACM capabilities follow the slot: MEDIC slots carry the medical qualification, while DEMOLITIONS slots carry Advanced Engineer and EOD qualification. Other combat-role slots do not inherit those qualifications.
+Role-qualified ACE/ACM capabilities follow the slot: MED slots carry the medical qualification, while DEMO/CBRN/MTR slots carry Advanced Engineer and EOD qualification. Other combat-role slots do not inherit those qualifications.
 
 ## Rank, XP & Ranked Arsenal
 
