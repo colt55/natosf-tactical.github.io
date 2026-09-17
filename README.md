@@ -59,7 +59,7 @@ QRF pressure scales with real player count. Hidden reinforcement opportunities d
 
 ### Standard Blue Force Capability
 
-- **EAGLE 1–4** — BWMod tactical mobility fleet.
+- **EAGLE 1–4** — BWMod tactical vehicles
 - **OVERLORD** — Command Vehicle / support platform
 - **MULTI A4 1–2** — multifunction logistics vehicles with towing support
 - **LIFTER 1–2** — heavy and light tactical rotary-wing lift
