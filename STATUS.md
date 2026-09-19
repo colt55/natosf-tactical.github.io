@@ -2,7 +2,7 @@
 
 Current public website baseline: **SENTINEL V2.04.79**.
 
-Current production server: **`108.61.112.198:2302`**.
+Current production server: **`85.190.160.165:10600`**.
 
 SENTINEL is a multi-terrain deployment campaign. The public site intentionally does not bind the campaign identity to one terrain.
 
