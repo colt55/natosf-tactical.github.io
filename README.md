@@ -22,9 +22,11 @@ SENTINEL uses one common campaign framework across deployments. Terrain, base pl
 - **TeamSpeak / ACRE2:** `ts107.nitrado.net:10450`
 - **TeamSpeak Password:** `FALCON7`
 
-## Core Required Mods
+## Current Required Mods
 
-The permanent SENTINEL core client stack is:
+The current Stubbhult Workshop collection contains **10 required items**.
+
+Permanent SENTINEL core:
 
 - CBA_A3
 - ACE3
@@ -33,7 +35,14 @@ The permanent SENTINEL core client stack is:
 - RHS Armed Forces of the Russian Federation (RHSAFRF)
 - BWMod / BWA3
 
-The terrain package varies by deployment and is supplied through the active Workshop collection.
+Current deployment / aviation requirements:
+
+- Stubbhult
+- Project Hatchet H-60
+- Hatchet Interaction Framework
+- AH-64D Apache Official Project
+
+The terrain package changes with the active deployment. The Workshop collection is the client synchronization point for the current required set.
 
 **Steam Workshop Collection:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928
