@@ -1,5 +1,13 @@
 # Website Changelog
 
+## 2026-09-22
+
+- Updated the public SENTINEL baseline to V2.04.182.
+- Set the current deployment display name to G.O.S Al Rayak, without exposing the internal terrain classname.
+- Updated the required server mod stack to include CUP Terrains - Core, G.O.S Al Rayak and Pegasus MH-47G.
+- Updated OPFOR public wording to Russian + Chinese forces.
+- Documented the 1% cross-role specialization XP system while retaining the existing death penalties.
+
 ## 2026-09-12
 
 - Aligned public Operator Role names with the current SENTINEL lobby-slot labels: RECON, DEMO/CBRN/MTR, SNIPER, AT/AD, MG, MED and RW PILOT.
