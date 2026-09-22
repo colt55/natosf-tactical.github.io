@@ -1,6 +1,6 @@
 # SENTINEL — Rank, XP, Operator Roles & Ranked Arsenal
 
-Verified against **SENTINEL V2.04.79**.
+Verified against **SENTINEL V2.04.182**.
 
 Your SENTINEL career moves with the campaign. Military rank, career points, specialization XP and Ranked Arsenal progress continue with you from one deployment to the next.
 
@@ -86,7 +86,7 @@ Promotion and demotion are calculated automatically from your current career poi
 
 ## 4. Specialization XP
 
-Global rank and specialization development are separate. Positive career gains also develop the specialization represented by your current lobby-assigned Operator Role.
+Global rank and specialization development are separate. When positive specialization XP is awarded, the current lobby-assigned Operator Role receives the full award and every other specialization receives 1% of that award as cross-role XP. Cross-role XP does not recursively generate additional cross-role XP.
 
 A normal player death keeps the standard career-point penalty and also removes **5% from every specialization that currently has XP**, calculated independently for each specialization and rounded upward.
 
