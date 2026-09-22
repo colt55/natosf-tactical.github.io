@@ -5,10 +5,11 @@ Official public information hub for **SENTINEL**, the continuing multi-terrain t
 ## Campaign Standard
 
 - **Mission:** SENTINEL
-- **Build:** V2.04.79
+- **Build:** V2.04.182
 - **Deployment Model:** Multi-terrain
+- **Current Deployment:** G.O.S Al Rayak
 - **BLUEFOR Standard:** BWMod / BWA3
-- **OPFOR Standard:** RHS Armed Forces of the Russian Federation
+- **OPFOR Standard:** Russian + Chinese forces
 - **Objective Compatibility:** Arma 3 + official DLC terrain objects or CUP Terrain Core objects
 - **Gameplay:** Tactical co-op / MilSim
 
@@ -24,18 +25,20 @@ SENTINEL uses one common campaign framework across deployments. Terrain, base pl
 
 ## Required Mods
 
-Current server mod stack:
+Current server mod stack for **G.O.S Al Rayak**:
 
 - CBA_A3
 - ACE3
 - Advanced Combat Medicine (ACM)
 - ACRE2
+- CUP Terrains - Core
 - RHS Armed Forces of the Russian Federation (RHSAFRF)
 - BWMod / BWA3
-- Stubbhult
+- G.O.S Al Rayak
 - Project Hatchet H-60
 - Hatchet Interaction Framework
 - AH-64D Apache Official Project
+- Pegasus MH-47G
 
 **Steam Workshop Collection:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928
@@ -77,7 +80,7 @@ Role-qualified ACE/ACM capabilities follow the slot: MED slots carry the medical
 
 ## Rank, XP & Ranked Arsenal
 
-Your SENTINEL career moves with the campaign. Rank and specialization progress continue with you from one deployment to the next.
+Your SENTINEL career moves with the campaign. Rank and specialization progress continue with you from one deployment to the next. Positive specialization XP goes in full to the active role, while every other specialization receives 1% cross-role XP.
 
 Ranked Arsenal authorization is based on your current lobby-assigned Operator Role and your progress in that role. Equipment tiers are cumulative, while specialist equipment remains tied to the appropriate role.
 
