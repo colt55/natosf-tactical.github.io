@@ -1,5 +1,12 @@
 # Website Changelog
 
+## 2026-09-25
+
+- Updated the public required-mod stack after retirement of the AH-64D Apache from SENTINEL.
+- Removed AH-64D Apache Official Project from the required-mod list.
+- Removed the obsolete Pegasus MH-47G entry from the required-mod list.
+- Required server mod count is now 10.
+
 ## 2026-09-22
 
 - Updated the public SENTINEL baseline to V2.04.182.
