@@ -37,8 +37,6 @@ Current server mod stack for **G.O.S Al Rayak**:
 - G.O.S Al Rayak
 - Project Hatchet H-60
 - Hatchet Interaction Framework
-- AH-64D Apache Official Project
-- Pegasus MH-47G
 
 **Steam Workshop Collection:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3495986928
