@@ -1,5 +1,11 @@
 # Website Changelog
 
+## 2026-09-26
+
+- Updated the public SENTINEL baseline to V2.04.213.
+- Updated OPFOR wording to Russian, Chinese, Iranian + African Militia.
+- African Militia uses vanilla Arma 3 assets; the required server mod count remains 10.
+
 ## 2026-09-25
 
 - Updated the public required-mod stack after retirement of the AH-64D Apache from SENTINEL.
