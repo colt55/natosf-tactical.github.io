@@ -1,6 +1,6 @@
 # SENTINEL Public Deployment Status
 
-Current public website baseline: **SENTINEL V2.04.182**.
+Current public website baseline: **SENTINEL V2.04.213**.
 
 Current production server: **`85.190.160.165:10600`**.
 
