@@ -5,11 +5,11 @@ Official public information hub for **SENTINEL**, the continuing multi-terrain t
 ## Campaign Standard
 
 - **Mission:** SENTINEL
-- **Build:** V2.04.182
+- **Build:** V2.04.213
 - **Deployment Model:** Multi-terrain
 - **Current Deployment:** G.O.S Al Rayak
 - **BLUEFOR Standard:** BWMod / BWA3
-- **OPFOR Standard:** Russian + Chinese forces
+- **OPFOR Standard:** Russian, Chinese, Iranian + African Militia
 - **Objective Compatibility:** Arma 3 + official DLC terrain objects or CUP Terrain Core objects
 - **Gameplay:** Tactical co-op / MilSim
 
