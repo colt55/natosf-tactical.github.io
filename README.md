@@ -5,12 +5,12 @@ Official public information hub for **SENTINEL**, the continuing multi-terrain t
 ## Campaign Standard
 
 - **Mission:** SENTINEL
-- **Build:** V2.04.213
+- **Build:** V2.04.388
 - **Deployment Model:** Multi-terrain
-- **Current Deployment:** G.O.S Al Rayak
+- **Current Deployment:** Altis
 - **BLUEFOR Standard:** BWMod / BWA3
 - **OPFOR Standard:** Russian, Chinese, Iranian + Local Militia
-- **Objective Compatibility:** Arma 3 + official DLC terrain objects or CUP Terrain Core objects
+- **Objective Compatibility:** Altis / Arma 3 + official DLC terrain objects
 - **Gameplay:** Tactical co-op / MilSim
 
 SENTINEL uses one common campaign framework across deployments. Terrain, base placement, Areas of Operation and battlefield conditions can change while your operator career continues with the campaign.
@@ -18,6 +18,7 @@ SENTINEL uses one common campaign framework across deployments. Terrain, base pl
 ## Connect
 
 - **Server:** `85.190.160.165:10600`
+- **Capacity:** 6 players maximum
 - **Server Browser:** `Operation Sentinel Server [ACE/ACRE/ACM]`
 - **Discord:** https://discord.gg/6XrZ6t52E
 - **TeamSpeak / ACRE2:** `ts107.nitrado.net:10450`
@@ -25,16 +26,14 @@ SENTINEL uses one common campaign framework across deployments. Terrain, base pl
 
 ## Required Mods
 
-Current server mod stack for **G.O.S Al Rayak**:
+Current listed mod stack for **Altis**:
 
 - CBA_A3
 - ACE3
 - Advanced Combat Medicine (ACM)
 - ACRE2
-- CUP Terrains - Core
-- RHS Armed Forces of the Russian Federation (RHSAFRF)
+- Pegasus Systems MH-47G
 - BWMod / BWA3
-- G.O.S Al Rayak
 - Project Hatchet H-60
 - Hatchet Interaction Framework
 
@@ -62,7 +61,7 @@ QRF pressure scales with real player count. Hidden reinforcement opportunities d
 
 ### Standard Blue Force Capability
 
-- **EAGLE 1–4** — BWMod tactical vehicles
+- **EAGLE 1–6** — BWMod tactical vehicles
 - **OVERLORD** — Command Vehicle / support platform
 - **MULTI A4 1–2** — multifunction logistics vehicles with towing support
 - **LIFTER 1–2** — heavy and light tactical rotary-wing lift
