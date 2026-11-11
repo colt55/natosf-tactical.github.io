@@ -1,6 +1,6 @@
 # SENTINEL — Rank, XP, Operator Roles & Ranked Arsenal
 
-Verified against **SENTINEL V2.04.182**.
+Updated for the **SENTINEL V2.04.472 Al Rayak TEST mission**. Latest mission code and release notes determine active role tiers; this is not a claim of dedicated-server acceptance.
 
 Your SENTINEL career moves with the campaign. Military rank, career points, specialization XP and Ranked Arsenal progress continue with you from one deployment to the next.
 
@@ -14,15 +14,18 @@ Your SENTINEL career includes:
 - independent specialization XP for every Operator Role;
 - Ranked Arsenal progression for each specialization.
 
-The current Operator Roles are:
+The **eight current playable operator role categories** are:
 
-- RECON
-- DEMO/CBRN/MTR
-- SNIPER
-- AT/AD
-- MG
-- MED
-- RW PILOT
+- RECON (Recon JTAC)
+- COMBAT_SPECIALIST (Combat Specialist)
+- MORTAR (Mortar)
+- SNIPER (Sniper)
+- ANTI_ARMOR (Anti-Armor / Air Defense)
+- HEAVY_GUNNER (Heavy Gunner)
+- MEDIC (Medic)
+- HELI_PILOT (Helicopter Pilot)
+
+There is **no playable Battle Captain**. Historical Battle Captain and retired-role records remain available internally for save/profile compatibility.
 
 The **multiplayer lobby slot is the sole authority for the active Operator Role**. To change specialization, return to the multiplayer lobby and select a different role slot. The CENTCOM Tablet **OPERATOR ROLE** page is view/status only and does not change your role.
 
@@ -94,26 +97,29 @@ Changing Operator Roles does not erase XP already earned in another role.
 
 ### Specialization equipment tiers
 
-| Specialization | Tier thresholds | Maximum XP |
-| --- | --- | ---: |
-| RECON | T1 0 / T2 50 / T3 125 / T4 250 / T5 450 | 495 XP |
-| DEMO/CBRN/MTR | T1 0 / T2 100 / T3 275 / T4 550 | 605 XP |
-| SNIPER | T1 0 / T2 200 / T3 450 / T4 800 / T5 1,200 | 1,320 XP |
-| AT/AD | T1 0 / T2 150 / T3 375 / T4 675 | 743 XP |
-| MG | T1 0 / T2 125 / T3 350 | 385 XP |
-| MED | T1 0 | 605 XP |
-| RW PILOT | T1 0 | 605 XP |
+| Specialization | Active equipment tiers and XP thresholds |
+| --- | --- |
+| Recon JTAC / Recon | T1 0 / T2 50 / T3 125 |
+| Combat Specialist | T1 0 / T2 100 / T3 275 / T4 550 |
+| Mortar | T1 0 |
+| Sniper | T1 0 / T2 200 / T3 800 / T4 1,200 |
+| Anti-Armor / Air Defense | T1 0 / T2 150 / T3 375 / T4 675 |
+| Heavy Gunner | T1 0 / T2 125 |
+| Medic | T1 0 / T2 100 / T3 275 / T4 550 |
+| Helicopter Pilot | T1 0 |
 
-MED and RW PILOT intentionally use one equipment tier while still developing specialization XP as part of the operator career.
+Tier thresholds are **specialization XP**, not military career points. The mission retains separate XP caps and saved career records. The mission's authored CUP inventories govern what each tier actually contains.
 
 ## 5. Operator Role capabilities
 
 Role identity comes from the multiplayer lobby.
 
-- **MED** slots carry the configured ACE/ACM medical qualification.
-- **DEMO/CBRN/MTR** slots carry Advanced Engineer and EOD qualification.
-- **RECON, SNIPER, AT/AD, MG and RW PILOT** do not inherit MED or DEMO/CBRN/MTR qualifications simply by changing equipment.
-- The CENTCOM Tablet **OPERATOR ROLE** page reports the current role and progression but does not provide a role-change control.
+- **MEDIC** slots carry the configured ACE/ACM medical qualification and have four Arsenal tiers.
+- **COMBAT_SPECIALIST** slots carry the mission's combat engineer / specialist access, including qualified EOD functions.
+- **RECON** is authorized the NATO UAV terminal and Recon-exclusive Remington ACR EGLM grenade-launcher rifles.
+- **MORTAR, SNIPER, ANTI_ARMOR, HEAVY_GUNNER and HELI_PILOT** receive their own role-specific equipment, not another role's restricted specialist gear.
+- **HEAVY_GUNNER** primary machine guns/light support weapons use 100+ round ammunition; this restriction does not remove sidearm or SMG magazines.
+- There is no playable **BATTLE_CAPTAIN**; historic XP data is preserved.
 
 This keeps gameplay capability, equipment authorization and the selected multiplayer role aligned.
 
@@ -132,9 +138,9 @@ Role restrictions also apply to controlled equipment carried inside uniforms, ve
 
 Ordinary battlefield loot outside the controlled SENTINEL Arsenal is not automatically role-locked.
 
-The standardized BWA3 apparel system includes approved Flecktarn, Multitarn and Tropentarn variants for appropriate non-pilot roles. Terrain-aware camouflage affects AI detection performance based on actual equipment and local environment.
+The current BLUEFOR Arsenal is based on CUP Development with US Army OCP equipment as the mission standard; the legacy BWMod/BWA3 arsenal standard is retired. Terrain-aware camouflage affects AI detection according to equipped clothing and surroundings.
 
-CBRN-compatible Crye/ghillie uniforms and ACM filter access are available to non-pilot specialties. RW PILOT remains excluded from the CBRN entitlement.
+Medical and CBRN access, specialty equipment and role restrictions follow the current approved CUP role-tier inventories. Thermal optics are excluded by campaign policy.
 
 ## 7. Campaign continuity
 
